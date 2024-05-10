@@ -1,0 +1,4 @@
+#projects .card {
+    outline-color: var(--pink-primary);
+    transition: all 0.3s ease;
+}

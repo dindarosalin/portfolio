@@ -1,0 +1,37 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "styles/about.css";
+@import "styles/projects.css";
+
+:root {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: var(--choco);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --navy: rgb(7, 15, 43);
+  --choco: rgb(12, 12, 12);
+  --pink-primary: rgb(175, 130, 96);
+}
+
+.outline-button {
+  color: var(--pink-primary);
+  outline-color: var(--pink-primary);
+}
+
+button {
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  color: white;
+  background-color: var(--pink-primary);
+}
