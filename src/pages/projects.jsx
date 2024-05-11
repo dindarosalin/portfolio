@@ -6,7 +6,7 @@ const projects = () => {
             role: "Fullstack Web Developer",
             tech: ['PHP', 'Laravel', 'Laragon', 'Bootstrap', 'mySql', "Rest API"],
             description: "Participated in the development of Medifirst, an internal pharmacy management application, as part of the Medifirst team",
-            image: "src/assets/images/projects/medifirst2.png",
+            image: "images/projects/medifirst2.png",
             demoLink: "#",
             repositoryLink: "#"
         },
@@ -16,7 +16,7 @@ const projects = () => {
             role: "Fullstack Web Developer",
             tech: ['PHP', 'Laravel', 'Laragon', 'Bootstrap', 'mySql'],
             description: "Contributed to bug fixing and maintenance tasks for the DenXP national and international shipping web application.",
-            image: "src/assets/images/projects/denxp.png",
+            image: "images/projects/denxp.png",
             demoLink: "https://denxp.com/",
         },
         {
@@ -25,7 +25,7 @@ const projects = () => {
             role: "Front End Web Developer",
             tech: ['Javascript', 'React Js', "Vite", "NPM", "Bootstrap", "Fetch API"],
             description: "Translating Figma UI/UX designs into clean,responvie, semantic, and user-friendly web interfaces and Integrating API consumtion for dinamic content with a focus on optimal performance",
-            image: "src/assets/images/projects/hero.png",
+            image: "images/projects/hero.png",
             demoLink: "https://detikhealth-dindarosalin.vercel.app/",
             repositoryLink: "https://github.com/dindarosalin/Detikcom_FrontendDesignAssignment_dindarosalin"
         },
@@ -35,7 +35,7 @@ const projects = () => {
             role: "Front End Web Developer",
             tech: ['Javascript', 'React Js', "Vite", "NPM", "Bootstrap", "Fetch API"],
             description: "Translating Figma UI/UX designs into clean,responvie, semantic, and user-friendly web interfaces and Integrating API consumtion for dinamic content with a focus on optimal performance",
-            image: "src/assets/images/projects/udarakita.png",
+            image: "images/projects/udarakita.png",
             demoLink: "https://cek-udara.my.id/",
             repositoryLink: "https://github.com/Cepu-Developer"
         },
@@ -45,7 +45,7 @@ const projects = () => {
             role: "Front End Web Developer",
             tech: ['Typescript', 'React Js', "Vite", "Yarn", "Bootstrap", "Fetch API"],
             description: "Translating Figma UI/UX designs into clean,responvie, semantic, and user-friendly web interfaces and Integrating API consumtion for dinamic content with a focus on optimal performance",
-            image: "src/assets/images/projects/tinggalklik.png",
+            image: "images/projects/tinggalklik.png",
             demoLink: "https://play.google.com/store/apps/details?id=com.tinggalklik_user.app&pcampaignid=web_share",
             repositoryLink: "https://www.linkedin.com/company/tinggalklik/"
         },
@@ -55,7 +55,7 @@ const projects = () => {
             role: "UI Designer",
             tech: ["Figma", "Prototyping"],
             description: "Designing intuitive and visually appealing user interfaces (UI) and user experiences (UX) with a keen focus on user needs, usability, and accessibility",
-            image: "src/assets/images/projects/halostudents.png",
+            image: "images/projects/halostudents.png",
             demoLink: "https://www.figma.com/proto/LyBLYyD29i3iLUleoNDkLE/Halo-UAJY?type=design&node-id=268-998&t=FdtYroxr2XZ5h6Tk-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=268%3A998&mode=design",
         },
         {
@@ -64,7 +64,7 @@ const projects = () => {
             role: "Front End Web Developer",
             tech: ['Javascript', 'React Js', "Vite", "NPM", "Tailwindcss", "Fetch API"],
             description: "Developing responsive and visually captivating front-end solutions that prioritize, seamless interaction, and aesthetic appeal to deliver an immersive and delightful website.",
-            image: "src/assets/images/projects/portfolio.png",
+            image: "images/projects/portfolio.png",
             demoLink: "https://www.figma.com/proto/LyBLYyD29i3iLUleoNDkLE/Halo-UAJY?type=design&node-id=268-998&t=FdtYroxr2XZ5h6Tk-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=268%3A998&mode=design",
             repositoryLink: "https://github.com/dindarosalin/portfolio"
         },
