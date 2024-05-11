@@ -4,15 +4,17 @@ import About from './pages/about'
 import Projects from './pages/projects'
 import Learn from './pages/learn'
 import Experiences from './pages/experiences'
+import Contact from './pages/contact'
 
 function App() {
   return (
     <>
-    <Navbar></Navbar>
-    <About></About>
-    <Projects></Projects>
-    <Learn></Learn>
-    <Experiences></Experiences>
+    <Navbar />
+    <About />
+    <Projects />
+    <Learn />
+    <Experiences />
+    <Contact />
     </>
   )
 }

@@ -21,17 +21,3 @@
   --choco: rgb(12, 12, 12);
   --pink-primary: rgb(175, 130, 96);
 }
-
-.outline-button {
-  color: var(--pink-primary);
-  outline-color: var(--pink-primary);
-}
-
-button {
-  transition: all 0.3s ease;
-}
-
-button:hover {
-  color: white;
-  background-color: var(--pink-primary);
-}
