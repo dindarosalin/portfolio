@@ -1,3 +1,6 @@
+import { faPhone } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+
 const about = () => {
   return (
     <section id="about" className="z-0 place-content-center h-100 container ">
@@ -13,7 +16,8 @@ const about = () => {
                   with a focus on Front End and Full Stack Web Development. Passionate about continuous learning and possessing a growth mindset, I am driven to excel in the dynamic field of technology.
                 </p>
               <div className="mt-9">
-                <a href="https://wa.me/+6282333525346" target="_blank" rel="noopener noreferrer" className="hover:shadow-lg hover:shadow-gold hover:scale-105 transition cursor-pointer duration-500 ease-in-out shadow-md shadow-gold outline outline-gold outline-1 outline-offset-2 rounded py-2 px-3 mt-4">Contact Me</a>
+                <a href="https://wa.me/+6282333525346" target="_blank" rel="noopener noreferrer" className="hover:shadow-lg hover:shadow-gold hover:scale-105 transition cursor-pointer duration-500 ease-in-out shadow-md shadow-gold outline outline-gold outline-1 outline-offset-2 rounded py-2 px-3 mt-4">
+                <FontAwesomeIcon icon={faPhone} className='h-4' /> Contact Me</a>
               </div>
             </div>
             <div className="flex justify-end hidden md:inline-block lg:inline-block m-3">

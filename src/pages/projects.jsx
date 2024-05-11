@@ -1,3 +1,7 @@
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 const projects = () => {
     const projectData = [
         {
@@ -71,7 +75,7 @@ const projects = () => {
     ];
 
     return (
-        <section id="projects" className="container px-10">
+        <section id="projects" className="container px-5">
             <div className="mt-7">
                 <h2 className="text-3xl underline decoration-gold">My Recent Projects</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mt-10">
@@ -99,7 +103,7 @@ const projects = () => {
                                         href={project.demoLink}
                                         className="hover:shadow-lg hover:shadow-gold hover:scale-105 transition cursor-pointer duration-500 ease-in-out shadow-md shadow-gold outline outline-gold outline-1 outline-offset-2 rounded py-2 px-3 mt-4"
                                     >
-                                        Demo
+                                        <FontAwesomeIcon icon={faArrowUpRightFromSquare} /> Demo
                                     </a>
                                 )}
                                 {project.repositoryLink && (
@@ -108,7 +112,7 @@ const projects = () => {
                                         href={project.repositoryLink}
                                         className="hover:shadow-lg hover:shadow-gold hover:scale-105 transition cursor-pointer duration-500 ease-in-out shadow-md shadow-gold outline outline-gold outline-1 outline-offset-2 rounded py-2 px-3 mt-4"
                                     >
-                                        Repository
+                                        <FontAwesomeIcon icon={faGithub} /> Repository
                                     </a>
                                 )}
                             </div>
