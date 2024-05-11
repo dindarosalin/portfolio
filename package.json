@@ -16,7 +16,9 @@
     "@fortawesome/react-fontawesome": "^0.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "swiper": "^11.1.1"
+    "react-pdf-tailwind": "^2.3.0",
+    "swiper": "^11.1.1",
+    "tailwind-pdf-viewer": "^0.1.5"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",

@@ -1,3 +1,6 @@
+// import PDFViewer from "tailwind-pdf-viewer"
+// import resume from "../assets/docs/resume.pdf";
+
 const experiences = () => {
   const experiencesData = [
     {
@@ -7,7 +10,7 @@ const experiences = () => {
       position: "Fullstack Web Developer",
       type: "Internship",
       duration: "Feb-June 2024",
-      imageUrl: "src/assets/images/profile.jpeg"
+      imageUrl: "https://karirlab-prod-bucket.s3.ap-southeast-1.amazonaws.com/files/privates/0Mi8MzF6FmwVOWQv4xYbA0vD2Orrg0ASVn2U9oho.png"
     },
     {
       id: 2,
@@ -16,7 +19,7 @@ const experiences = () => {
       position: "Frontend Web Developer",
       type: "Internship",
       duration: "Jan-March 2024",
-      imageUrl: "src/assets/images/profile.jpeg"
+      imageUrl: "https://media.licdn.com/dms/image/C560BAQHLZ02Yun0yEQ/company-logo_200_200/0/1639933390165?e=1723680000&v=beta&t=NCnTO8qV6NHlG03FA6eOSRkf_ITNU3LxrcBnE0phzVw"
     },
     {
       id: 3,
@@ -25,7 +28,7 @@ const experiences = () => {
       position: "Frontend and Backend Web Developer",
       type: "Course",
       duration: "Aug-Dec 2023",
-      imageUrl: "src/assets/images/profile.jpeg"
+      imageUrl: "https://yt3.ggpht.com/a-/AN66SAxduc7UZqTVgU0IxluPFRLA0Nhn_SWR7tis8g=s900-mo-c-c0xffffffff-rj-k-no"
     },
     {
       id: 4,
@@ -33,8 +36,8 @@ const experiences = () => {
       companyLink: "https://digitalent.kominfo.go.id/program?akademi=VSGA",
       position: "Junior Web Developer",
       type: "Course",
-      duration: "March 2022 - March 2024",
-      imageUrl: "src/assets/images/profile.jpeg"
+      duration: "August 2023",
+      imageUrl: "https://play-lh.googleusercontent.com/p5E-YoYPD-PUZQw9zb9z4si0JRhkpuivjnEaGYTSoPyv6WyQ4IgVrmARsjXN38KM0Q"
     },
     {
       id: 5,
@@ -42,8 +45,8 @@ const experiences = () => {
       companyLink: "https://digitalent.kominfo.go.id/program?akademi=VSGA",
       position: "Junior Graphic Designer",
       type: "Course",
-      duration: "March 2022 - March 2024",
-      imageUrl: "src/assets/images/profile.jpeg"
+      duration: "October 2022",
+      imageUrl: "https://play-lh.googleusercontent.com/p5E-YoYPD-PUZQw9zb9z4si0JRhkpuivjnEaGYTSoPyv6WyQ4IgVrmARsjXN38KM0Q"
     },
     {
       id: 6,
@@ -52,7 +55,7 @@ const experiences = () => {
       position: "Copywriter",
       type: "Part-time",
       duration: "March 2022 - March 2024",
-      imageUrl: "src/assets/images/profile.jpeg"
+      imageUrl: "https://media.licdn.com/dms/image/D560BAQEeh-Xblbnlrw/company-logo_200_200/0/1702953433053?e=1723680000&v=beta&t=yI_Oc_pQeB0EJkjXa3k_Ktmx4vhn9p4DyYP2Dk8GwP0"
     },
   ];
 
@@ -75,7 +78,9 @@ const experiences = () => {
           ))}
         </div>
         <div className="outline outline-1 outline-gold rounded w-full mt-5 md:mt-1 lg:mt-1">
-          <h1 className="text-3xl m-3">Konten lain</h1>
+          <h1 className="text-md m-3">
+          {/* <PDFViewer pdfURL={resume} /> */}
+          </h1>
         </div>
       </div>
 

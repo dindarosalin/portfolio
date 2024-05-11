@@ -23,13 +23,13 @@ const contact = () => {
                 <a href="https://www.linkedin.com/in/dindarosalin/" target="_blank" rel="noopener noreferrer">
                     <FontAwesomeIcon icon={faLinkedin} className='h-6 hover:text-gold ease-in-out duration-300'/>
                 </a>
-                <a href="http://" target="_blank" rel="noopener noreferrer">
+                <a href="mailto:dindarosalin24@gmail.com" target="_blank" rel="noopener noreferrer">
                     <FontAwesomeIcon icon={faEnvelope} className='h-6 hover:text-gold ease-in-out duration-300 '/>
                 </a>
-                <a href="http://" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/dindarosalin/" target="_blank" rel="noopener noreferrer">
                     <FontAwesomeIcon icon={faGithub} className='h-6 hover:text-gold ease-in-out duration-300'/>
                 </a>
-                <a href="http://" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.instagram.com/dindarosalin" target="_blank" rel="noopener noreferrer">
                     <FontAwesomeIcon icon={faInstagram} className='h-6 hover:text-gold ease-in-out duration-300'/>
                 </a>
             </div>
