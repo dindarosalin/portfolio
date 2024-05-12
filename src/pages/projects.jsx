@@ -77,7 +77,7 @@ const projects = () => {
     return (
         <section id="projects" className="container px-5">
             <div className="mt-7">
-                <h2 className="text-3xl underline decoration-gold">My Recent Projects</h2>
+                <h2 className="text-3xl underline decoration-gold">My Recent <span className='text-gold font-bold'>Projects</span></h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mt-10">
                     {projectData.map((project) => (
                         <div key={project.id} className="hover:scale-105 transition cursor-pointer duration-500 ease-in-out max-w-sm rounded overflow-hidden outline-1 outline p-3 card hover:shadow-gold hover:shadow-lg">
