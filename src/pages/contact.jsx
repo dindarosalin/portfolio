@@ -11,7 +11,7 @@ const contact = () => {
             <h1 className="text-3xl font-bold">Hire Me as Your Partner</h1>
             <p className="font-light text-md text-center mt-5">Anda dapat menyesuaikan properti dalam objek  sesuai dengan informasi <br /> yang ingin Anda tampilkan di komponen experiences.</p>
             <div className='mt-7 flex justify-center flex-col gap-3 md:flex-row lg:flex-row md:gap-7 lg:gap-7'>
-                <a href='docs/resume.pdf' download="resume.pdf" className="hover:shadow-lg hover:shadow-gold hover:scale-105 transition cursor-pointer duration-500 ease-in-out shadow-md shadow-gold outline outline-gold outline-1 outline-offset-2 rounded py-2 px-3 mt-4 text-gold">
+                <a href='docs/resume.pdf' download="RESUME_DINDA_ROSALIN_HUSNA_2024.pdf" className="hover:shadow-lg hover:shadow-gold hover:scale-105 transition cursor-pointer duration-500 ease-in-out shadow-md shadow-gold outline outline-gold outline-1 outline-offset-2 rounded py-2 px-3 mt-4 text-gold">
                     <FontAwesomeIcon icon={faDownload} className='h-4' /> Get My Curriculum Vitae
                 </a>
                 <a href="https://wa.me/+6282333525346" className="hover:shadow-lg hover:shadow-gold hover:scale-105 transition cursor-pointer duration-500 ease-in-out shadow-md shadow-gold outline outline-gold outline-1 outline-offset-2 rounded py-2 px-3 mt-4 text-gold">
