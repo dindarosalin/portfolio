@@ -8,14 +8,14 @@ import Contact from './pages/contact'
 
 function App() {
   return (
-    <>
-    <Navbar />
-    <About />
-    <Projects />
-    <Learn />
-    <Experiences />
-    <Contact />
-    </>
+    <main className='scroll-smooth'>
+      <Navbar />
+      <About />
+      <Projects />
+      <Learn />
+      <Experiences />
+      <Contact />
+    </main>
   )
 }
 
