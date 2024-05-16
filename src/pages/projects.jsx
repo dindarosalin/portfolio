@@ -69,8 +69,18 @@ const projects = () => {
             tech: ['Javascript', 'React Js', "Vite", "NPM", "Tailwindcss", "Fetch API"],
             description: "Developing responsive and visually captivating front-end solutions that prioritize, seamless interaction, and aesthetic appeal to deliver an immersive and delightful website.",
             image: "images/projects/portfolio.png",
-            demoLink: "https://www.figma.com/proto/LyBLYyD29i3iLUleoNDkLE/Halo-UAJY?type=design&node-id=268-998&t=FdtYroxr2XZ5h6Tk-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=268%3A998&mode=design",
+            demoLink: "https://dindarosalin.vercel.app/",
             repositoryLink: "https://github.com/dindarosalin/portfolio"
+        },
+        {
+            id: 8,
+            title: "Restaurant catalogue",
+            role: "Front End Web Developer",
+            tech: ['Javascript', 'React Js', "Vite", "NPM", "Tailwindcss", "Fetch API"],
+            description: "Developing responsive and visually captivating front-end solutions that prioritize, seamless interaction, and aesthetic appeal to deliver an immersive and delightful website.",
+            image: "images/projects/restaurant.PNG",
+            demoLink: "https://frontend-dev-reactjs-dinda-rosalin-husna.vercel.app/",
+            repositoryLink: "https://github.com/dindarosalin/FrontendDevReactjs-DindaRosalinHusna"
         },
     ];
 
