@@ -1,11 +1,13 @@
+import React, { useState } from 'react';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const projects = () => {
+const Projects = () => {
     const projectData = [
         {
             id: 1,
+            type: "fullstack",
             title: "Medifirst",
             role: "Fullstack Web Developer",
             tech: ['PHP', 'Laravel', 'Laragon', 'Bootstrap', 'mySql', "Rest API"],
@@ -16,6 +18,7 @@ const projects = () => {
         },
         {
             id: 2,
+            type: "fullstack",
             title: "DoneXP",
             role: "Fullstack Web Developer",
             tech: ['PHP', 'Laravel', 'Laragon', 'Bootstrap', 'mySql'],
@@ -25,6 +28,7 @@ const projects = () => {
         },
         {
             id: 3,
+            type: "frontend",
             title: "DetikHealth Landing Page",
             role: "Front End Web Developer",
             tech: ['Javascript', 'React Js', "Vite", "NPM", "Bootstrap", "Fetch API"],
@@ -35,6 +39,7 @@ const projects = () => {
         },
         {
             id: 4,
+            type: "frontend",
             title: "Udara Kita Web App",
             role: "Front End Web Developer",
             tech: ['Javascript', 'React Js', "Vite", "NPM", "Bootstrap", "Fetch API"],
@@ -45,6 +50,7 @@ const projects = () => {
         },
         {
             id: 5,
+            type: "frontend",
             title: "Tinggalklik Landing Page",
             role: "Front End Web Developer",
             tech: ['Typescript', 'React Js', "Vite", "Yarn", "Bootstrap", "Fetch API"],
@@ -55,6 +61,7 @@ const projects = () => {
         },
         {
             id: 6,
+            type: "ui_designer",
             title: "Halo Students",
             role: "UI Designer",
             tech: ["Figma", "Prototyping"],
@@ -64,6 +71,7 @@ const projects = () => {
         },
         {
             id: 7,
+            type: "frontend",
             title: "Personal Portfolio",
             role: "Front End Web Developer",
             tech: ['Javascript', 'React Js', "Vite", "NPM", "Tailwindcss", "Fetch API"],
@@ -74,6 +82,7 @@ const projects = () => {
         },
         {
             id: 8,
+            type: "frontend",
             title: "Restaurant catalogue",
             role: "Front End Web Developer",
             tech: ['Javascript', 'React Js', "Vite", "NPM", "Tailwindcss", "Fetch API"],
@@ -84,12 +93,50 @@ const projects = () => {
         },
     ];
 
+    const [filterType, setFilterType] = useState('all');
+
+    const handleFilterChange = (type) => {
+        setFilterType(type);
+    };
+
+    const filteredProjects = filterType === 'all'
+        ? projectData
+        : projectData.filter(project => project.type === filterType);
+
     return (
-        <section id="projects" className="container px-5">
+        <section id="projects" className="container px-5 pt-16">
             <div className="mt-7">
                 <h2 className="text-3xl underline decoration-gold">My Recent <span className='text-gold font-bold'>Projects</span></h2>
+                <div>
+                    <ul className='flex gap-4'>
+                        <li
+                            className={`active:text-gold hover:text-gold active:underline hover:underline transition duration-300 ease-in-out ${filterType === 'all' ? 'text-gold underline' : ''}`}
+                            onClick={() => handleFilterChange('all')}
+                        >
+                            <a href="#">All</a>
+                        </li>
+                        <li
+                            className={`active:text-gold hover:text-gold active:underline hover:underline transition duration-300 ease-in-out ${filterType === 'frontend' ? 'text-gold underline' : ''}`}
+                            onClick={() => handleFilterChange('frontend')}
+                        >
+                            <a href="#">Front End</a>
+                        </li>
+                        <li
+                            className={`active:text-gold hover:text-gold active:underline hover:underline transition duration-300 ease-in-out ${filterType === 'fullstack' ? 'text-gold underline' : ''}`}
+                            onClick={() => handleFilterChange('fullstack')}
+                        >
+                            <a href="#">Fullstack</a>
+                        </li>
+                        <li
+                            className={`active:text-gold hover:text-gold active:underline hover:underline transition duration-300 ease-in-out ${filterType === 'ui_designer' ? 'text-gold underline' : ''}`}
+                            onClick={() => handleFilterChange('ui_designer')}
+                        >
+                            <a href="#">Design</a>
+                        </li>
+                    </ul>
+                </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mt-10">
-                    {projectData.map((project) => (
+                    {filteredProjects.map((project) => (
                         <div key={project.id} className="hover:scale-105 transition cursor-pointer duration-500 ease-in-out max-w-sm rounded overflow-hidden outline-1 outline p-3 card hover:shadow-gold hover:shadow-lg">
                             <img className="w-full rounded-md" src={project.image} alt={project.title} />
                             <div className="mt-2">
@@ -108,11 +155,8 @@ const projects = () => {
                             </div>
                             <div className="m-4 flex justify-center gap-5">
                                 {project.demoLink && (
-                                    <a
-                                        target="_blank"
-                                        href={project.demoLink}
-                                        className="hover:shadow-lg hover:shadow-gold hover:scale-105 transition cursor-pointer duration-500 ease-in-out shadow-md shadow-gold outline outline-gold outline-1 outline-offset-2 rounded py-2 px-3 mt-4"
-                                    >
+                                    <a target="_blank" href={project.demoLink}
+                                        className="hover:shadow-lg hover:shadow-gold hover:scale-105 transition cursor-pointer duration-500 ease-in-out shadow-md shadow-gold outline outline-gold outline-1 outline-offset-2 rounded py-2 px-3 mt-4">
                                         <FontAwesomeIcon icon={faArrowUpRightFromSquare} /> Demo
                                     </a>
                                 )}
@@ -120,8 +164,7 @@ const projects = () => {
                                     <a
                                         target="_blank"
                                         href={project.repositoryLink}
-                                        className="hover:shadow-lg hover:shadow-gold hover:scale-105 transition cursor-pointer duration-500 ease-in-out shadow-md shadow-gold outline outline-gold outline-1 outline-offset-2 rounded py-2 px-3 mt-4"
-                                    >
+                                        className="hover:shadow-lg hover:shadow-gold hover:scale-105 transition cursor-pointer duration-500 ease-in-out shadow-md shadow-gold outline outline-gold outline-1 outline-offset-2 rounded py-2 px-3 mt-4">
                                         <FontAwesomeIcon icon={faGithub} /> Repository
                                     </a>
                                 )}
@@ -131,8 +174,7 @@ const projects = () => {
                 </div>
             </div>
         </section>
-    )
-    
-}
+    );
+};
 
-export default projects;
+export default Projects;

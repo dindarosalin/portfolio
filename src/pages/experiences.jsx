@@ -100,7 +100,7 @@ const experiences = () => {
   ]
 
   return (
-    <section id="experiences" className="my-7 container">
+    <section id="experiences" className="my-7 container pt-16">
       <h1 className="text-3xl">Exepriences and Certifications</h1>
       <div className="flex flex-col md:flex-row lg:flex-row justify-between mt-5 ">
         <div className="flex flex-col gap-10 w-full">
