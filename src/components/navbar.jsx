@@ -25,7 +25,7 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className="z-10 bg-white rounded px-5 py-3 w-max mx-auto bg-white/25 backdrop-blur-sm sticky top-0 mb-5 duration-300 ease-in-out">
+        <nav className="z-10 bg-white rounded px-5 py-3 w-max mx-auto bg-white/25 backdrop-blur-sm sticky top-4 mb-5 duration-300 ease-in-out">
             <ul className="flex text-white text-md font-light justify-between gap-5">
                 <li className={`hover:font-medium hover:text-gold duration-300 ease-in-out ${activeSection === 'about' ? 'text-gold font-medium' : ''}`}>
                     <a href="#about" className="sm:hidden">
