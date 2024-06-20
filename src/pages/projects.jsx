@@ -108,30 +108,30 @@ const Projects = () => {
             <div className="mt-7">
                 <h2 className="text-3xl underline decoration-gold">My Recent <span className='text-gold font-bold'>Projects</span></h2>
                 <div>
-                    <ul className='flex gap-4'>
+                    <ul className='flex gap-4 mt-4 md:justify-start justify-center'>
                         <li
                             className={`active:text-gold hover:text-gold active:underline hover:underline transition duration-300 ease-in-out ${filterType === 'all' ? 'text-gold underline' : ''}`}
                             onClick={() => handleFilterChange('all')}
                         >
-                            <a href="#">All</a>
+                            All
                         </li>
                         <li
                             className={`active:text-gold hover:text-gold active:underline hover:underline transition duration-300 ease-in-out ${filterType === 'frontend' ? 'text-gold underline' : ''}`}
                             onClick={() => handleFilterChange('frontend')}
                         >
-                            <a href="#">Front End</a>
+                            Front End
                         </li>
                         <li
                             className={`active:text-gold hover:text-gold active:underline hover:underline transition duration-300 ease-in-out ${filterType === 'fullstack' ? 'text-gold underline' : ''}`}
                             onClick={() => handleFilterChange('fullstack')}
                         >
-                            <a href="#">Fullstack</a>
+                            Fullstack
                         </li>
                         <li
                             className={`active:text-gold hover:text-gold active:underline hover:underline transition duration-300 ease-in-out ${filterType === 'ui_designer' ? 'text-gold underline' : ''}`}
                             onClick={() => handleFilterChange('ui_designer')}
                         >
-                            <a href="#">Design</a>
+                            Design
                         </li>
                     </ul>
                 </div>

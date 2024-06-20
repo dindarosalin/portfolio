@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 const about = () => {
   return (
-    <section id="about" className="z-0 place-content-center h-100 container">
+    <section id="about" className="z-0 place-content-center h-100 container pt-16">
         <div className="flex flex-col md:flex-row lg:flex-row justify-center">
             <div className="md:w-1/2 lg:w-2/3 text-center md:text-start lg:text-start m-3 mt-7">
                 <h1 className="text-4xl font-bold uppercase">Dinda Rosalin</h1>

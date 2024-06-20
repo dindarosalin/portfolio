@@ -8,7 +8,7 @@ import Contact from './pages/contact'
 
 function App() {
   return (
-    <main className='scroll-smooth'>
+    <main className='scroll-smooth snap-y'>
       <Navbar />
       <About />
       <Projects />
