@@ -13,8 +13,7 @@ const Projects = () => {
             tech: ['PHP', 'Laravel', 'Laragon', 'Bootstrap', 'mySql', "Rest API"],
             description: "Participated in the development of Medifirst, an internal pharmacy management application, as part of the Medifirst team",
             image: "images/projects/medifirst2.png",
-            demoLink: "#",
-            repositoryLink: "#"
+            demoLink: "https://medifirst.klop.dev/",
         },
         {
             id: 2,
@@ -110,32 +109,32 @@ const Projects = () => {
                 <div>
                     <ul className='flex gap-4 mt-4 md:justify-start justify-center'>
                         <li
-                            className={`active:text-gold hover:text-gold active:underline hover:underline transition duration-300 ease-in-out ${filterType === 'all' ? 'text-gold underline' : ''}`}
+                            className={`active:text-gold cursor-pointer hover:text-gold active:underline hover:underline transition duration-300 ease-in-out ${filterType === 'all' ? 'text-gold underline' : ''}`}
                             onClick={() => handleFilterChange('all')}
                         >
                             All
                         </li>
                         <li
-                            className={`active:text-gold hover:text-gold active:underline hover:underline transition duration-300 ease-in-out ${filterType === 'frontend' ? 'text-gold underline' : ''}`}
+                            className={`active:text-gold cursor-pointer hover:text-gold active:underline hover:underline transition duration-300 ease-in-out ${filterType === 'frontend' ? 'text-gold underline' : ''}`}
                             onClick={() => handleFilterChange('frontend')}
                         >
                             Front End
                         </li>
                         <li
-                            className={`active:text-gold hover:text-gold active:underline hover:underline transition duration-300 ease-in-out ${filterType === 'fullstack' ? 'text-gold underline' : ''}`}
+                            className={`active:text-gold cursor-pointer hover:text-gold active:underline hover:underline transition duration-300 ease-in-out ${filterType === 'fullstack' ? 'text-gold underline' : ''}`}
                             onClick={() => handleFilterChange('fullstack')}
                         >
                             Fullstack
                         </li>
                         <li
-                            className={`active:text-gold hover:text-gold active:underline hover:underline transition duration-300 ease-in-out ${filterType === 'ui_designer' ? 'text-gold underline' : ''}`}
+                            className={`active:text-gold cursor-pointer hover:text-gold active:underline hover:underline transition duration-300 ease-in-out ${filterType === 'ui_designer' ? 'text-gold underline' : ''}`}
                             onClick={() => handleFilterChange('ui_designer')}
                         >
                             Design
                         </li>
                     </ul>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mt-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mt-10 transition ease-in-out duration-300 ">
                     {filteredProjects.map((project) => (
                         <div key={project.id} className="hover:scale-105 transition cursor-pointer duration-500 ease-in-out max-w-sm rounded overflow-hidden outline-1 outline p-3 card hover:shadow-gold hover:shadow-lg">
                             <img className="w-full rounded-md" src={project.image} alt={project.title} />

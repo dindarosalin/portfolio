@@ -5,12 +5,14 @@ import Projects from './pages/projects'
 import Learn from './pages/learn'
 import Experiences from './pages/experiences'
 import Contact from './pages/contact'
+import Profiles from './pages/profiles'
 
 function App() {
   return (
-    <main className='scroll-smooth snap-y'>
+    <main>
       <Navbar />
       <About />
+      {/* <Profiles /> */}
       <Projects />
       <Learn />
       <Experiences />
