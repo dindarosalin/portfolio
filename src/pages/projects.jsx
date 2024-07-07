@@ -13,7 +13,7 @@ const Projects = () => {
             tech: ['PHP', 'Laravel', 'Laragon', 'Bootstrap', 'mySql', "Rest API"],
             description: "Participated in the development of Medifirst, an internal pharmacy management application, as part of the Medifirst team",
             image: "images/projects/medifirst2.png",
-            demoLink: "https://medifirst.klop.dev/",
+            demoLink: "https://medifirst.adslink.id/",
         },
         {
             id: 2,
