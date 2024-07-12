@@ -39,6 +39,15 @@ const learn = () => {
                     ))}
                 </div>
             </div>
+            <div class="overflow-x-hidden">
+                <div class="py-12 animate-marquee whitespace-nowrap ">
+                    <span class="mx-4 text-4xl">Marquee Item 1</span>
+                    <span class="mx-4 text-4xl">Marquee Item 2</span>
+                    <span class="mx-4 text-4xl">Marquee Item 3</span>
+                    <span class="mx-4 text-4xl">Marquee Item 4</span>
+                    <span class="mx-4 text-4xl">Marquee Item 5</span>
+                </div>
+            </div>
         </section>
     );
 };

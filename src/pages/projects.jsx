@@ -136,7 +136,7 @@ const Projects = () => {
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mt-10 transition ease-in-out duration-300 ">
                     {filteredProjects.map((project) => (
-                        <div key={project.id} className="hover:scale-105 transition cursor-pointer duration-500 ease-in-out max-w-sm rounded overflow-hidden outline-1 outline p-3 card hover:shadow-gold hover:shadow-lg">
+                        <div key={project.id} className="hover:scale-105 transition cursor-pointer duration-500 ease-in-out max-w-sm rounded overflow-hidden outline-1 outline p-3 card hover:shadow-gold hover:shadow-md">
                             <img className="w-full rounded-md" src={project.image} alt={project.title} />
                             <div className="mt-2">
                                 <div className="font-bold text-xl">{project.title}</div>
@@ -155,7 +155,7 @@ const Projects = () => {
                             <div className="m-4 flex justify-center gap-5">
                                 {project.demoLink && (
                                     <a target="_blank" href={project.demoLink}
-                                        className="hover:shadow-lg hover:shadow-gold hover:scale-105 transition cursor-pointer duration-500 ease-in-out shadow-md shadow-gold outline outline-gold outline-1 outline-offset-2 rounded py-2 px-3 mt-4">
+                                        className="hover:shadow-md hover:shadow-gold hover:scale-105 transition cursor-pointer duration-500 ease-in-out shadow-sm shadow-gold outline-offset-2 rounded-full py-2 px-3 mt-4">
                                         <FontAwesomeIcon icon={faArrowUpRightFromSquare} /> Demo
                                     </a>
                                 )}
@@ -163,7 +163,7 @@ const Projects = () => {
                                     <a
                                         target="_blank"
                                         href={project.repositoryLink}
-                                        className="hover:shadow-lg hover:shadow-gold hover:scale-105 transition cursor-pointer duration-500 ease-in-out shadow-md shadow-gold outline outline-gold outline-1 outline-offset-2 rounded py-2 px-3 mt-4">
+                                        className="hover:shadow-md hover:shadow-gold hover:scale-105 transition cursor-pointer duration-500 ease-in-out shadow-sm shadow-gold outline-offset-2 rounded-full py-2 px-3 mt-4">
                                         <FontAwesomeIcon icon={faGithub} /> Repository
                                     </a>
                                 )}
