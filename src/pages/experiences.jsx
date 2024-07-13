@@ -7,16 +7,16 @@ const experiences = () => {
       position: "Fullstack Web Developer",
       type: "Internship",
       duration: "Feb-June 2024",
-      imageUrl: "https://karirlab-prod-bucket.s3.ap-southeast-1.amazonaws.com/files/privates/0Mi8MzF6FmwVOWQv4xYbA0vD2Orrg0ASVn2U9oho.png"
+      imageUrl: "https://adsdigitalpartner.co.id/wp-content/uploads/2022/04/Logo-Putih.png"
     },
     {
       id: 2,
       companyName: "Tinggalklik",
-      companyLink: "https://www.linkedin.com/company/tinggalklik/",
+      companyLink: "https://tinggalklik.co/",
       position: "Frontend Web Developer",
       type: "Internship",
       duration: "Jan-March 2024",
-      imageUrl: "https://media.licdn.com/dms/image/C560BAQHLZ02Yun0yEQ/company-logo_200_200/0/1639933390165?e=1723680000&v=beta&t=NCnTO8qV6NHlG03FA6eOSRkf_ITNU3LxrcBnE0phzVw"
+      imageUrl: "https://tinggalklik.co/assets/logo-CqTHt0f8.png"
     },
     {
       id: 3,
