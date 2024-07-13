@@ -106,8 +106,8 @@ const experiences = () => {
         <div className="flex flex-col gap-10 w-full">
           {experiencesData.map((experience) => (
             <div key={experience.id} className="flex flex-row gap-5 text-start">
-              <div className="block relative">
-                <img src={experience.imageUrl} alt="Company" className="rounded-full w-16 p-2" />
+              <div className="block relative p-2">
+                <img src={experience.imageUrl} alt="Company" className="rounded-full w-16" />
               </div>
               <div>
                 <a href={experience.companyLink} target="_blank" className="font-bold text-xl hover:text-gold ease-in-out duration-300">{experience.companyName}</a>
