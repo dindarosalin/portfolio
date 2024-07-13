@@ -1,3 +1,5 @@
+import Marquee from "react-fast-marquee";
+
 const learn = () => {
     // Array of SVG file names
     const svgIcons = [
@@ -31,22 +33,15 @@ const learn = () => {
                 <h1 className="font-medium text-3xl text-center md:text-start underline decoration-gold"><span className="text-gold font-bold">My Stucks</span> and Tools.</h1>
             </div>
             <div className="m-5">
-                <div className="flex flex-wrap justify-center md:justify-start gap-5 mt-2">
-                    {svgIcons.map((icon, index) => (
-                        <div key={index} className="max-w-24 bg-gold p-3 rounded-md outline outline-1 outline-offset-4 outline-gold">
-                            <img src={`${svgIconDirectory}${icon}`} alt={icon} className="w-24" />
-                        </div>
-                    ))}
-                </div>
-            </div>
-            <div class="overflow-x-hidden">
-                <div class="py-12 animate-marquee whitespace-nowrap ">
-                    <span class="mx-4 text-4xl">Marquee Item 1</span>
-                    <span class="mx-4 text-4xl">Marquee Item 2</span>
-                    <span class="mx-4 text-4xl">Marquee Item 3</span>
-                    <span class="mx-4 text-4xl">Marquee Item 4</span>
-                    <span class="mx-4 text-4xl">Marquee Item 5</span>
-                </div>
+                <Marquee behavior="" direction="left">
+                    <div className="flex gap-4 my-4">
+                        {svgIcons.map((icon, index) => (
+                            <div key={index} className="max-w-24 md:max-w-32 w-full bg-gold p-4 rounded-md outline outline-1 outline-offset-4 outline-gold me-2">
+                                <img src={`${svgIconDirectory}${icon}`} alt={icon} className="w-18 md:w-24" />
+                            </div>
+                        ))}
+                    </div>
+                </Marquee>
             </div>
         </section>
     );

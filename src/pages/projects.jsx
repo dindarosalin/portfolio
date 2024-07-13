@@ -152,10 +152,10 @@ const Projects = () => {
                                     ))}
                                 </div>
                             </div>
-                            <div className="m-4 flex justify-center gap-5">
+                            <div className="m-4 flex justify-center gap-5 mb-0">
                                 {project.demoLink && (
                                     <a target="_blank" href={project.demoLink}
-                                        className="hover:shadow-md hover:shadow-gold hover:scale-105 transition cursor-pointer duration-500 ease-in-out shadow-sm shadow-gold outline-offset-2 rounded-full py-2 px-3 mt-4">
+                                        className="hover:shadow-md hover:shadow-gold hover:scale-105 transition cursor-pointer duration-500 ease-in-out shadow-sm shadow-gold outline-offset-2 rounded-full py-2 px-3 mb-2 text-sm">
                                         <FontAwesomeIcon icon={faArrowUpRightFromSquare} /> Demo
                                     </a>
                                 )}
@@ -163,7 +163,7 @@ const Projects = () => {
                                     <a
                                         target="_blank"
                                         href={project.repositoryLink}
-                                        className="hover:shadow-md hover:shadow-gold hover:scale-105 transition cursor-pointer duration-500 ease-in-out shadow-sm shadow-gold outline-offset-2 rounded-full py-2 px-3 mt-4">
+                                        className="hover:shadow-md hover:shadow-gold hover:scale-105 transition cursor-pointer duration-500 ease-in-out shadow-sm shadow-gold outline-offset-2 rounded-full py-2 px-3 mb-2 text-sm">
                                         <FontAwesomeIcon icon={faGithub} /> Repository
                                     </a>
                                 )}
