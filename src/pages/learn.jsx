@@ -1,4 +1,5 @@
 import Marquee from "react-fast-marquee";
+import GitHubCalendar from 'react-github-calendar';
 
 const learn = () => {
     // Array of SVG file names
@@ -42,6 +43,12 @@ const learn = () => {
                         ))}
                     </div>
                 </Marquee>
+            </div>
+            <div id="contributions">
+                <h1 className="font-medium text-2xl text-start m-4">Recent Contributions</h1>
+                <div className="justify-center">
+                    <GitHubCalendar username="dindarosalin" colorScheme="dark" />
+                </div>
             </div>
         </section>
     );
