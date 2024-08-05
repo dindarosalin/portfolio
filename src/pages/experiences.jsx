@@ -1,13 +1,5 @@
-import React, { useRef, useState } from 'react';
-// Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// Import Swiper styles
 import 'swiper/css';
-import 'swiper/css/pagination';
-
-// import required modules
-import { Pagination } from 'swiper/modules';
 
 const experiences = () => {
   const experiencesData = [
@@ -113,7 +105,7 @@ const experiences = () => {
           <SwiperSlide key={experience.id}>
             <div className="flex flex-row gap-5 text-start">
               <div className="block relative p-2">
-                <img src={experience.imageUrl} alt={experience.companyName} className="rounded-full w-16" />
+                <img src={experience.imageUrl} alt={experience.companyName} className="w-16" />
               </div>
               <div>
                 <a href={experience.companyLink} target="_blank" className="font-bold text-xl hover:text-gold ease-in-out duration-300">{experience.companyName}</a>
