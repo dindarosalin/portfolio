@@ -7,12 +7,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        "steel-blue": "var(--steel-blue)",
-        "pink": "var(--pink)",
-        "burly-wood": "var(--burly-wood)",
-        "light-khaki": "var(--light-khaki)",
-        "dark-sea": "var(--dark-sea)",
-        "gold": "var(--pink-primary)"
+        "pink-primary": "var(--pink-primary)",
+        "pink-secondary": "var(--pink-secondary)",
+        "red-dark": "var(--red-dark)",
       },
     },
   },

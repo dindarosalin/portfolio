@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -141,7 +141,7 @@ const Projects = () => {
                             <div className="mt-2">
                                 <div className="font-bold text-xl">{project.title}</div>
                                 <p className="subtitle mb-2 italic text-light">{project.role}</p>
-                                <p className="text-white text-light mb-2">
+                                <p className="mb-2">
                                     {project.description}
                                 </p>
                                 <div className='flex flex-wrap gap-1'>

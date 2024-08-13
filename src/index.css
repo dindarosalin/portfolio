@@ -9,16 +9,13 @@
   line-height: 1.5;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: var(--choco);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  --navy: rgb(7, 15, 43);
-  --choco: rgb(12, 12, 12);
-  --pink-primary: rgb(175, 130, 96);
-  
+  --pink-primary: rgba(255, 202, 208, 1);
+  --pink-secondary: rgba(255, 239, 239, 1);
+  --red-dark: rgba(59, 4, 5, 1);
 }
