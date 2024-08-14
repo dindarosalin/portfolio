@@ -12,7 +12,7 @@ const Navbar = () => {
 
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                if (window.scrollY >= sectionTop - 60) { // Sesuaikan dengan tinggi navbar
+                if (window.scrollY >= sectionTop - 60) {
                     currentSection = section.getAttribute('id');
                 }
             });

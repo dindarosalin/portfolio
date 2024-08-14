@@ -3,9 +3,9 @@
 @import "tailwindcss/utilities";
 @import "styles/about.css";
 @import "styles/projects.css";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 
 :root {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
 
   color-scheme: light dark;
@@ -17,5 +17,16 @@
 
   --pink-primary: rgba(255, 202, 208, 1);
   --pink-secondary: rgba(255, 239, 239, 1);
+  --pink-darker: rgba(255, 121, 136, 1);
   --red-dark: rgba(59, 4, 5, 1);
+}
+
+.source-sans {
+  font-family: 'Source Sans 3', sans-serif;
+  font-optical-sizing: auto;
+}
+
+.playfair-display {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
 }

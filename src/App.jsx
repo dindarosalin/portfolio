@@ -6,12 +6,13 @@ import Learn from './pages/learn'
 import Experiences from './pages/experiences'
 import Certifications from './pages/certifications'
 import Contact from './pages/contact'
-import Profiles from './pages/profiles'
+import Home from './pages/home'
 
 function App() {
   return (
     <main>
       <Navbar />
+      <Home/>
       <About />
       <Projects />
       <Learn />
