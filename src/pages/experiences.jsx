@@ -83,7 +83,7 @@ const experiences = () => {
           <p className="font-medium text-xl source-sans text-red-dark">Experiences</p>
           <h1 className="playfair-display font-bold text-3xl text-center text-pink-primary">My Experiences</h1>
           <div className='flex justify-center'>
-            <p className='w-1/2 text-md justify-center'>Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia.</p>
+            <p className='w-full md:w-1/2 text-md justify-center'>Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia.</p>
           </div>
         </article>
         <div className='mt-8'>
@@ -110,13 +110,13 @@ const experiences = () => {
                     <p className="text-md source-sans">{experience.description}</p>
                   </div>
                   <div className="sm:col-span-2 order-1 sm:order-2">
-                    <img src={experience.imageUrl} alt={experience.companyName} className="rounded-lg h-52 w-full sm:w-auto" />
+                    <img src={experience.imageUrl} alt={experience.companyName} className="rounded-lg h-32 md:h-52 w-full sm:w-auto" />
                   </div>
                 </>
               ) : (
                 <>
                   <div className="sm:col-span-2 order-1 sm:order-1">
-                    <img src={experience.imageUrl} alt={experience.companyName} className="rounded-lg h-52 w-full sm:w-auto" />
+                    <img src={experience.imageUrl} alt={experience.companyName} className="rounded-lg h-32 md:h-52 w-full sm:w-auto" />
                   </div>
                   <div className="sm:col-span-3 order-2 sm:order-2">
                     <p className="font-medium text-xl source-sans text-red-dark">{experience.position}</p>

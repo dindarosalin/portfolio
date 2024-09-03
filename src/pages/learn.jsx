@@ -30,11 +30,11 @@ const learn = () => {
 
     return (
         <section id="learn" className="my-10 py-2 w-full p-0 rounded-lg pt-12 bg-pink-secondary">
-            <div className=''>
+            <div className='container'>
                 <p className="font-medium text-lg source-sans text-red-dark">Tools</p>
                 <h1 className="playfair-display font-bold text-3xl text-center">My Tools and Contibution.</h1>
             </div>
-            <div className="m-5">
+            <div className="m-5 container">
                 <Marquee behavior="" direction="left">
                     <div className="flex gap-4 my-4">
                         {svgIcons.map((icon, index) => (
@@ -45,7 +45,7 @@ const learn = () => {
                     </div>
                 </Marquee>
             </div>
-            <div id="contributions" className="justify-center">
+            <div id="contributions" className="justify-center container">
                 <div className="flex justify-center">
                     <GitHubCalendar 
                         username="dindarosalin" 

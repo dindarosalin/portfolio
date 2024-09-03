@@ -54,7 +54,7 @@ const certifications = () => {
     ]
 
     return (
-        <div className=' pt-16'>
+        <div className='container pt-16'>
             <div className="w-full mt-5 md:mt-1 lg:mt-1">
                 <div className='mb-4'>
                     <p className="font-medium text-lg source-sans text-red-dark">Certificates and Achivements</p>

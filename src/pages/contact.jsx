@@ -1,10 +1,10 @@
-import { faLinkedin, faMediumM, faSquareInstagram } from '@fortawesome/free-brands-svg-icons'
+import { faGithub, faLinkedin, faMediumM, faSquareInstagram } from '@fortawesome/free-brands-svg-icons'
 import { faDownload, faPaperPlane, faPhone } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const contact = () => {
     return (
-        <section id="contact" className="h-screen pt-20">
+        <section id="contact" className="pt-20 container">
             <div className='flex flex-col md:flex-row place-items-start gap-4'>
                 <div className="md:w-2/3 me-6 flex flex-col justify-center place-content-center">
                     <h1 className="playfair-display font-bold text-2xl text-center mb-2">Connect With Me</h1>
@@ -70,6 +70,9 @@ const contact = () => {
                                 </a>
                                 <a href="https://medium.com/@dindarosalin" target="_blank" rel="noopener noreferrer">
                                     <FontAwesomeIcon icon={faMediumM} className='h-6 text-pink-primary hover:text-pink-darker transition ease-in-out duration-300 m-1' />
+                                </a>
+                                <a href="https://github.com/dindarosalin" target="_blank" rel="noopener noreferrer">
+                                    <FontAwesomeIcon icon={faGithub} className='h-6 text-pink-primary hover:text-pink-darker transition ease-in-out duration-300 m-1' />
                                 </a>
                             </td>
                         </tr>

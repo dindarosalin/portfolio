@@ -114,11 +114,54 @@ const Projects = () => {
         : projectsToShow.filter(project => filterType.includes(project.type));
 
     return (
-        <section id="projects" className='px-5 pt-16 '>
+        <section id="projects" className='px-5 pt-16 container'>
             <div className="grid grid-cols-3 gap-4">
                 <div className="col-span-3 md:col-span-2">
                     <div className='p-2 border rounded-md border-red-dark'>
                         <h2 className="text-3xl playfair-display font-bold">Projects</h2>
+                    </div>
+                    <div className='md:hidden'>
+                        <ul className='flex mt-4 md:justify-start justify-center'>
+                            <li>
+                                <label
+                                    className={`checkbox flex justify-between items-center px-3 cursor-pointer active:text-pink-darker transition duration-300 ease-in-out ${filterType.includes('fullstack') ? 'text-pink-darker' : ''}`}
+                                >
+                                    <p className="text-md me-1">Fullstack</p>
+                                    <input
+                                        type="checkbox"
+                                        className="text-pink-darker w-4 h-4 bg-pink-secondary checked:text-pink-primary focus:ring-pink-primary"
+                                        checked={filterType.includes('fullstack')}
+                                        onChange={() => handleFilterChange('fullstack')}
+                                    />
+                                </label>
+                            </li>
+                            <li>
+                                <label
+                                    className={`checkbox flex justify-between items-center px-3 cursor-pointer active:text-pink-darker transition duration-300 ease-in-out ${filterType.includes('fullstack') ? 'text-pink-darker' : ''}`}
+                                >
+                                    <p className="text-md me-1">Frontend</p>
+                                    <input
+                                        type="checkbox"
+                                        className="text-pink-darker w-4 h-4 bg-pink-secondary checked:text-pink-primary focus:ring-pink-primary"
+                                        checked={filterType.includes('frontend')}
+                                        onChange={() => handleFilterChange('frontend')}
+                                    />
+                                </label>
+                            </li>
+                            <li>
+                                <label
+                                    className={`checkbox flex justify-between items-center px-3 cursor-pointer active:text-pink-darker transition duration-300 ease-in-out ${filterType.includes('fullstack') ? 'text-pink-darker' : ''}`}
+                                >
+                                    <p className="text-md me-1">Design</p>
+                                    <input
+                                        type="checkbox"
+                                        className="text-pink-darker w-4 h-4 bg-pink-secondary checked:text-pink-primary focus:ring-pink-primary"
+                                        checked={filterType.includes('ui_designer')}
+                                        onChange={() => handleFilterChange('ui_designer')}
+                                    />
+                                </label>
+                            </li>
+                        </ul>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-7 mt-10 transition ease-in-out duration-300 ">
                         {filteredProjects.map((project) => (
@@ -130,27 +173,20 @@ const Projects = () => {
                                     <p className="m-2">
                                         {project.description}
                                     </p>
-                                    {/* <div className='flex flex-wrap gap-1'>
-                                    {Array.isArray(project.tech) && project.tech.map((techItem, index) => (
-                                        <h5 key={index} className='text-gold italic text-sm'>
-                                            #{techItem}
-                                        </h5>
-                                    ))}
-                                </div> */}
                                 </div>
                                 <div className="m-4 flex justify-center gap-5 mb-0">
                                     {project.demoLink && (
                                         <a target="_blank" href={project.demoLink}
-                                            className="hover:shadow-lg transition cursor-pointer duration-500 ease-in-out shadow-sm outline-offset-2 rounded-md py-2 px-3 mb-2 text-sm bg-pink-darker text-white">
-                                            <FontAwesomeIcon icon={faArrowUpRightFromSquare} /> Demo
+                                            className="flex flex-row gap-1 items-center hover:shadow-lg transition cursor-pointer duration-500 ease-in-out shadow-sm outline-offset-2 rounded-md py-2 px-3 mb-2 text-sm bg-pink-darker text-white">
+                                            <FontAwesomeIcon icon={faArrowUpRightFromSquare} /> <p className='hidden md:block'>Demo</p>
                                         </a>
                                     )}
                                     {project.repositoryLink && (
                                         <a
                                             target="_blank"
                                             href={project.repositoryLink}
-                                            className="hover:shadow-lg transition cursor-pointer duration-500 ease-in-out shadow-sm outline-offset-2 rounded-md py-2 px-3 mb-2 text-sm bg-pink-darker text-white">
-                                            <FontAwesomeIcon icon={faGithub} /> Repository
+                                            className="flex flex-row gap-1 items-center hover:shadow-lg transition cursor-pointer duration-500 ease-in-out shadow-sm outline-offset-2 rounded-md py-2 px-3 mb-2 text-sm bg-pink-darker text-white">
+                                            <FontAwesomeIcon icon={faGithub} /> <p className='hidden md:block'>Repository</p>
                                         </a>
                                     )}
                                 </div>
@@ -158,15 +194,14 @@ const Projects = () => {
                         ))}
                     </div>
                 </div>
-                <div className="col-span-3 md:col-span-1 source-sans">
+                <div className="col-span-3 md:col-span-1 source-sans hidden md:block">
                     <form className="max-w-md mx-auto">
                         <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
-                        <div className="relative ">
-                            <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                        <div className="relative">
+                            <input type="search" disabled id="default-search" className="block w-full p-4 ps-10 text-sm text-gray-900 border border-red-dark rounded-md focus:ring-pink-darker focus:border-pink-darker " placeholder="Search Projects" required />
+                            <button type="submit" className="text-white absolute end-2.5 bottom-2.5 bg-pink-darker hover:bg-pink-darker focus:outline-none focus:pink-secondary font-medium rounded-md text-sm px-4 py-2">
                                 <FontAwesomeIcon icon={faMagnifyingGlass} />
-                            </div>
-                            <input type="search" id="default-search" className="block w-full p-4 ps-10 text-sm text-gray-900 border border-red-dark rounded-md focus:ring-pink-darker focus:border-pink-darker " placeholder="Search Projects" required />
-                            <button type="submit" className="text-white absolute end-2.5 bottom-2.5 bg-pink-darker hover:bg-pink-darker focus:outline-none focus:pink-secondary font-medium rounded-md text-sm px-4 py-2">Search</button>
+                            </button>
                         </div>
                     </form>
                     <div className='border border-red-dark p-2 rounded-md mt-10'>
