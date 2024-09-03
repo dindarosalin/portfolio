@@ -15,6 +15,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  --pink-light: rgba(255, 239, 239, 1);
   --pink-primary: rgba(255, 202, 208, 1);
   --pink-secondary: rgba(255, 239, 239, 1);
   --pink-darker: rgba(255, 121, 136, 1);

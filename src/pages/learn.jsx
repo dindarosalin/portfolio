@@ -29,9 +29,10 @@ const learn = () => {
     const svgIconDirectory = 'images/icon_svg/';
 
     return (
-        <section id="learn" className="my-10 py-3 w-full p-0 rounded-lg pt-16">
-            <div className='m-5'>
-                <h1 className="font-medium text-3xl text-center md:text-start underline decoration-gold"><span className="text-gold font-bold">My Stucks</span> and Tools.</h1>
+        <section id="learn" className="my-10 py-2 w-full p-0 rounded-lg pt-12 bg-pink-secondary">
+            <div className=''>
+                <p className="font-medium text-lg source-sans text-red-dark">Tools</p>
+                <h1 className="playfair-display font-bold text-3xl text-center">My Tools and Contibution.</h1>
             </div>
             <div className="m-5">
                 <Marquee behavior="" direction="left">
@@ -44,10 +45,16 @@ const learn = () => {
                     </div>
                 </Marquee>
             </div>
-            <div id="contributions">
-                <h1 className="font-medium text-2xl text-start m-4">Recent Contributions</h1>
-                <div className="justify-center">
-                    <GitHubCalendar username="dindarosalin" colorScheme="dark" />
+            <div id="contributions" className="justify-center">
+                <div className="flex justify-center">
+                    <GitHubCalendar 
+                        username="dindarosalin" 
+                        blockSize={15} 
+                        blockMargin={5} 
+                        fontSize={16} 
+                        colorScheme="light" 
+                        className="place-self-center" 
+                    />
                 </div>
             </div>
         </section>

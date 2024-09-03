@@ -10,27 +10,25 @@ const about = () => {
           </p>
         </div>
         <div className="md:w-1/2">
-          <p className="font-bold">EDUCATION</p>
-          <div className=" outline rounded-md outline-1 outline-red-dark text-start p-4">
-            <table>
-              <tr className="shadow-sm">
-                <th className="text-start font-medium">University:</th>
-                <td>Politeknik Negeri Banyuwangi</td>
-              </tr>
-              <tr className="shadow-sm">
-                <th className="text-start font-medium">Department:</th>
-                <td>D4 Teknologi Rekayasa Perangkat Lunak</td>
-              </tr>
-              <tr className="shadow-sm">
-                <th className="text-start font-medium">Grade:</th>
-                <td>3.81</td>
-              </tr>
-              <tr className="shadow-sm">
-                <th className="text-start font-medium">Year:</th>
-                <td>2021-Now</td>
-              </tr>
-            </table>
-          </div>
+          <table className='text-start table-auto border-separate border-spacing-2 border border-2 border-red-dark rounded-md'>
+            <caption className='caption-top font-bold uppercase'>education</caption>
+            <tr className="shadow-sm">
+              <th className="text-start font-medium">University:</th>
+              <td>Politeknik Negeri Banyuwangi</td>
+            </tr>
+            <tr className="shadow-sm">
+              <th className="text-start font-medium">Department:</th>
+              <td>D4 Teknologi Rekayasa Perangkat Lunak</td>
+            </tr>
+            <tr className="shadow-sm">
+              <th className="text-start font-medium">Grade:</th>
+              <td>3.81</td>
+            </tr>
+            <tr className="shadow-sm">
+              <th className="text-start font-medium">Year:</th>
+              <td>2021-Now</td>
+            </tr>
+          </table>
         </div>
       </div>
     </section>

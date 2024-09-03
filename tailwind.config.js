@@ -7,6 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        "pink-light": "var(--pink-light)",
         "pink-primary": "var(--pink-primary)",
         "pink-secondary": "var(--pink-secondary)",
         "pink-darker": "var(--pink-darker)",

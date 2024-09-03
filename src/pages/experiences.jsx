@@ -1,4 +1,3 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 
 const experiences = () => {
@@ -7,15 +6,17 @@ const experiences = () => {
       id: 1,
       companyName: "Media Center Poliwangi",
       companyLink: "https://www.instagram.com/mediacenter.poliwangi",
+      description: "Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia. Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia.",
       position: "Copywriter",
       type: "Part-time",
       duration: "March 2022 - March 2024",
-      imageUrl: "https://media.licdn.com/dms/image/D560BAQEeh-Xblbnlrw/company-logo_200_200/0/1702953433053?e=1723680000&v=beta&t=yI_Oc_pQeB0EJkjXa3k_Ktmx4vhn9p4DyYP2Dk8GwP0"
+      imageUrl: "https://media.licdn.com/dms/image/v2/D560BAQEeh-Xblbnlrw/company-logo_200_200/company-logo_200_200/0/1702953433053?e=1733356800&v=beta&t=wuhAkpeRmz-_cxKfRrQIvGg7hmYSb2lCJDkqBU_CiWg"
     },
     {
       id: 2,
       companyName: "Vocational School Graduate Academy",
       companyLink: "https://digitalent.kominfo.go.id/",
+      description: "Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia. Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia.",
       position: "Junior Graphic Designer",
       type: "Course",
       duration: "October 2022",
@@ -25,6 +26,7 @@ const experiences = () => {
       id: 3,
       companyName: "Vocational School Graduate Academy",
       companyLink: "https://digitalent.kominfo.go.id/",
+      description: "Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia. Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia.",
       position: "Junior Web Developer",
       type: "Course",
       duration: "August 2023",
@@ -34,6 +36,7 @@ const experiences = () => {
       id: 4,
       companyName: "Dicoding Indonesia",
       companyLink: "https://www.dicoding.com/",
+      description: "Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia. Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia.",
       position: "Frontend and Backend Web Developer",
       type: "Course",
       duration: "Aug-Dec 2023",
@@ -43,6 +46,7 @@ const experiences = () => {
       id: 5,
       companyName: "Tinggalklik",
       companyLink: "https://tinggalklik.co/",
+      description: "Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia. Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia.",
       position: "Frontend Web Developer",
       type: "Internship",
       duration: "Jan-March 2024",
@@ -52,15 +56,17 @@ const experiences = () => {
       id: 6,
       companyName: "ADS Digital Partner",
       companyLink: "https://adsdigitalpartner.co.id/",
+      description: "Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia. Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia.",
       position: "Fullstack Web Developer",
       type: "Internship",
       duration: "Feb-June 2024",
-      imageUrl: "https://adsdigitalpartner.co.id/wp-content/uploads/2022/04/Logo-Putih.png"
+      imageUrl: "https://media.licdn.com/dms/image/v2/C560BAQFnyUwWm1LDKA/company-logo_200_200/company-logo_200_200/0/1648799905094/pt_adma_digital_solusi_logo?e=1733356800&v=beta&t=5_WbNNIaPMWimZbC-PUbtpGoBLpuQPlwdZmR3OAJmtE"
     },
     {
       id: 7,
       companyName: "Abarobotics",
       companyLink: "https://www.abarobotics.com/",
+      description: "Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia. Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia.",
       position: "Fullstack Web Developer",
       type: "Internship",
       duration: "July 2024 - Present",
@@ -72,50 +78,69 @@ const experiences = () => {
 
   return (
     <section id="experiences" className="my-7 container pt-16">
-      <h1 className="text-3xl mb-8 font-bold">Exepriences</h1>
-      <Swiper
-        slidesPerView={1}
-        spaceBetween={10}
-        navigation={true}
-        loop={true}
-        className="mySwiper"
-        autoplay={{
-          delay: 3000,
-          disableOnInteraction: false,
-        }}
-        keyboard={{
-          enabled: true,
-        }}
-        breakpoints={{
-          640: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-          },
-          768: {
-            slidesPerView: 3,
-            spaceBetween: 30,
-          },
-          1024: {
-            slidesPerView: 3,
-            spaceBetween: 30,
-          },
-        }}
-      >
-        {experiencesDescending.map((experience) => (
-          <SwiperSlide key={experience.id}>
-            <div className="flex flex-row gap-5 text-start">
-              <div className="block relative p-2">
-                <img src={experience.imageUrl} alt={experience.companyName} className="w-16" />
-              </div>
-              <div>
-                <a href={experience.companyLink} target="_blank" className="font-bold text-xl hover:text-gold ease-in-out duration-300">{experience.companyName}</a>
-                <h2 className="subtitle italic">{experience.position}</h2>
-                <p className="font-medium mt-1">{experience.type} <span className="italic font-light">{experience.duration}</span></p>
-              </div>
+      <div>
+        <article className='text-center'>
+          <p className="font-medium text-xl source-sans text-red-dark">Experiences</p>
+          <h1 className="playfair-display font-bold text-3xl text-center text-pink-primary">My Experiences</h1>
+          <div className='flex justify-center'>
+            <p className='w-1/2 text-md justify-center'>Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia.</p>
+          </div>
+        </article>
+        <div className='mt-8'>
+          {experiencesDescending.map((experience, index) => (
+            <div
+              key={experience.id}
+              className={`grid grid-cols-1 sm:grid-cols-5 text-${index % 2 === 0 ? 'end' : 'start'} gap-6 mt-6 place-items-center sm:place-items-${index % 2 === 0 ? 'end' : 'start'}`}
+            >
+              {index % 2 === 0 ? (
+                <>
+                  <div className="sm:col-span-3 order-2 sm:order-1">
+                    <p className="font-medium text-xl source-sans text-red-dark">{experience.position}</p>
+                    <a
+                      href={experience.companyLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="playfair-display font-bold text-2xl text-center md:text-end text-pink-primary"
+                    >
+                      {experience.companyName}
+                    </a>
+                    <p className="font-medium mt-1">
+                      {experience.type} <span className="italic font-light">{experience.duration}</span>
+                    </p>
+                    <p className="text-md source-sans">{experience.description}</p>
+                  </div>
+                  <div className="sm:col-span-2 order-1 sm:order-2">
+                    <img src={experience.imageUrl} alt={experience.companyName} className="rounded-lg h-52 w-full sm:w-auto" />
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="sm:col-span-2 order-1 sm:order-1">
+                    <img src={experience.imageUrl} alt={experience.companyName} className="rounded-lg h-52 w-full sm:w-auto" />
+                  </div>
+                  <div className="sm:col-span-3 order-2 sm:order-2">
+                    <p className="font-medium text-xl source-sans text-red-dark">{experience.position}</p>
+                    <a
+                      href={experience.companyLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="playfair-display font-bold text-2xl text-center text-pink-primary"
+                    >
+                      {experience.companyName}
+                    </a>
+                    <p className="font-medium mt-1">
+                      {experience.type} <span className="italic font-light">{experience.duration}</span>
+                    </p>
+                    <p className="text-md source-sans">{experience.description}</p>
+                  </div>
+                </>
+              )}
             </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+          ))}
+        </div>
+
+
+      </div>
     </section>
   );
 }

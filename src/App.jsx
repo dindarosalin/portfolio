@@ -7,6 +7,7 @@ import Experiences from './pages/experiences'
 import Certifications from './pages/certifications'
 import Contact from './pages/contact'
 import Home from './pages/home'
+import Footer from './pages/footer'
 
 function App() {
   return (
@@ -14,11 +15,12 @@ function App() {
       <Navbar />
       <Home/>
       <About />
-      <Projects />
       <Learn />
+      <Projects />
       <Experiences />
       <Certifications />
       <Contact />
+      <Footer />
     </main>
   )
 }
