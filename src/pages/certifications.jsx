@@ -97,7 +97,7 @@ const certifications = () => {
                         <div className="mt-4">
                             {certificateData.map((certificate) => (
                                 <SwiperSlide key={certificate.id}>
-                                    <div className="light:bg-pink-light p-4 rounded-md text-center dark:text-white dark:border dark:border-pink-darker">
+                                    <div className="light:bg-pink-light shadow-md p-4 rounded-md text-center dark:text-white dark:border dark:border-pink-darker">
                                         <div className="block relative flex justify-center">
                                             <img src={certificate.instansiImg} alt="" className='w-42 rounded-md p-3' />
                                         </div>
@@ -106,7 +106,7 @@ const certifications = () => {
                                             <p className="font-medium capitalize">{certificate.name}</p>
                                             <p className="font-medium mt-1"><span className="italic font-normal">{certificate.publishDate} - {certificate.expDate}</span></p>
                                         </div>
-                                        <div className="mt-3">
+                                        <div className="my-3">
                                             <a href={certificate.credentialUrl} target="_blank" rel="noopener noreferrer" className="hover:shadow-lg transition cursor-pointer duration-500 ease-in-out shadow-sm outline-offset-2 rounded-md py-2 px-3 mb-2 text-sm bg-pink-darker text-white">
                                                 <FontAwesomeIcon icon={faInfoCircle} /> Credential
                                             </a>
