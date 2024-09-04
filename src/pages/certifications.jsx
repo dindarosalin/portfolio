@@ -57,7 +57,7 @@ const certifications = () => {
         <div className='container pt-16'>
             <div className="w-full mt-5 md:mt-1 lg:mt-1">
                 <div className='mb-4'>
-                    <p className="font-medium text-lg source-sans text-red-dark dark:text-wite">Certificates and Achivements</p>
+                    <p className="font-medium text-lg source-sans text-red-dark dark:text-white">Certificates and Achivements</p>
                     <h1 className="playfair-display font-bold text-3xl text-center">Certifications</h1>
                 </div>
                 <div className='flex items-stretch'>
@@ -97,7 +97,7 @@ const certifications = () => {
                         <div className="mt-4">
                             {certificateData.map((certificate) => (
                                 <SwiperSlide key={certificate.id}>
-                                    <div className="bg-pink-light p-4 rounded-md text-center">
+                                    <div className="bg-pink-light p-4 rounded-md text-center dark:text-white">
                                         <div className="block relative flex justify-center">
                                             <img src={certificate.instansiImg} alt="" className='w-42 rounded-md p-3' />
                                         </div>
