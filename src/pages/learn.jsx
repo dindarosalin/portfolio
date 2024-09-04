@@ -29,17 +29,17 @@ const learn = () => {
     const svgIconDirectory = 'images/icon_svg/';
 
     return (
-        <section id="learn" className="my-10 py-2 w-full p-0 rounded-lg pt-12 bg-pink-secondary dark:text-red-dark">
+        <section id="learn" className="my-10 py-2 w-full p-0 bg-pink-light dark:text-red-dark dark:bg-pink-darker">
             <div className="justify-center container">
-                <div className=''>
+                <div>
                     <p className="font-medium text-lg source-sans text-red-dark">Tools</p>
                     <h1 className="playfair-display font-bold text-3xl text-center">My Tools and Contibution.</h1>
                 </div>
-                <div className="m-5 container">
+                <div>
                     <Marquee behavior="" direction="left">
-                        <div className="flex gap-4 my-4">
+                        <div className="flex">
                             {svgIcons.map((icon, index) => (
-                                <div key={index} className="max-w-24 md:max-w-32 w-full bg-gold p-4 rounded-md outline outline-1 outline-offset-4 outline-gold me-2">
+                                <div key={index} className="max-w-24 md:max-w-32 w-full p-4 rounded-md me-2">
                                     <img src={`${svgIconDirectory}${icon}`} alt={icon} className="w-18 md:w-24" />
                                 </div>
                             ))}
