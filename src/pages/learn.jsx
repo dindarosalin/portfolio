@@ -29,7 +29,7 @@ const learn = () => {
     const svgIconDirectory = 'images/icon_svg/';
 
     return (
-        <section id="learn" className="my-10 py-2 w-full p-0 rounded-lg pt-12 bg-pink-secondary">
+        <section id="learn" className="my-10 py-2 w-full p-0 rounded-lg pt-12 bg-pink-secondary dark:text-red-dark">
             <div className="justify-center container">
                 <div className=''>
                     <p className="font-medium text-lg source-sans text-red-dark">Tools</p>
