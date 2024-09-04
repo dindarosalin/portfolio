@@ -97,7 +97,7 @@ const certifications = () => {
                         <div className="mt-4">
                             {certificateData.map((certificate) => (
                                 <SwiperSlide key={certificate.id}>
-                                    <div className="bg-pink-light p-4 rounded-md text-center dark:text-red-dark">
+                                    <div className="light:bg-pink-light p-4 rounded-md text-center dark:text-white dark:border dark:border-pink-darker">
                                         <div className="block relative flex justify-center">
                                             <img src={certificate.instansiImg} alt="" className='w-42 rounded-md p-3' />
                                         </div>

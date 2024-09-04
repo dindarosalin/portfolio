@@ -14,19 +14,19 @@ const contact = () => {
                                 type="text"
                                 placeholder="Your Name"
                                 name="senderName"
-                                className="border-0 bg-pink-light p-2 rounded-md focus:ring focus:ring-pink-darker w-full"
+                                className="border-0 dark:border dark:border-pink-darker bg-pink-light dark:bg-inherit p-2 rounded-md focus:ring focus:ring-pink-darker w-full"
                             />
                             <input
                                 type="email"
                                 placeholder="Your Email"
                                 name="email"
-                                className="border-0 bg-pink-light p-2 rounded-md focus:ring focus:ring-pink-darker w-full"
+                                className="border-0 dark:border dark:border-pink-darker bg-pink-light dark:bg-inherit p-2 rounded-md focus:ring focus:ring-pink-darker w-full"
                             />
                             <textarea
                                 name="message"
                                 id="message"
                                 placeholder="Write your message"
-                                className="border-0 bg-pink-light p-2 rounded-md focus:ring focus:ring-pink-darker w-full h-32 resize-none"
+                                className="border-0 dark:border dark:border-pink-darker bg-pink-light dark:bg-inherit p-2 rounded-md focus:ring focus:ring-pink-darker w-full h-32 resize-none"
                             ></textarea>
                             <div className='place-self-end'>
                                 <button
@@ -42,7 +42,7 @@ const contact = () => {
                     </div>
                 </div>
                 <div className="md:w-1/3 justify-center flex flex-col place-content-center">
-                    <table className='text-start table-auto border-separate border-spacing-2 border border-2 border-red-dark dark:border-pink-darker rounded-md'>
+                    <table className='text-start table-auto border-separate border-spacing-2 border border-red-dark dark:border-pink-darker rounded-md'>
                         <caption className='caption-top font-bold uppercase'>Get In Touch</caption>
                         <tr className="shadow-sm m-3">
                             <th className="text-start font-medium">Address:</th>
@@ -78,18 +78,18 @@ const contact = () => {
                             </td>
                         </tr>
                     </table>
-                    <div className='mt-4'>
+                    <div className='mt-4 flex flex-row justify-center' >
                         <a
                             target="_blank"
                             href='docs/RESUME_DINDA_ROSALIN_HUSNA_2024.pdf' download="RESUME_DINDA_ROSALIN_HUSNA_2024.pdf"
-                            className="hover:shadow-lg m-2 transition cursor-pointer duration-500 ease-in-out shadow-sm outline-offset-2 rounded-md py-2 px-3 mb-2 text-sm bg-pink-darker text-white">
-                            <FontAwesomeIcon icon={faDownload} /> <p className='hidden md:block'>Get My CV</p>
+                            className="hover:shadow-lg m-2 transition cursor-pointer duration-500 ease-in-out shadow-sm flex flex-row gap-1 items-center rounded-md py-2 px-3 mb-2 text-sm bg-pink-darker text-white">
+                            <FontAwesomeIcon icon={faDownload} /> <span className='hidden md:block'>Get My CV</span>
                         </a>
                         <a
                             target="_blank"
                             href="https://wa.me/+6282333525346"
-                            className="hover:shadow-lg m-2 transition cursor-pointer duration-500 ease-in-out shadow-sm outline-offset-2 rounded-md py-2 px-3 mb-2 text-sm bg-pink-darker text-white">
-                            <FontAwesomeIcon icon={faPhone} /> <p className='hidden md:block'>Contact Now</p>
+                            className="hover:shadow-lg m-2 transition cursor-pointer duration-500 ease-in-out shadow-sm flex flex-row gap-1 items-center rounded-md py-2 px-3 mb-2 text-sm bg-pink-darker text-white">
+                            <FontAwesomeIcon icon={faPhone} /> <span className='hidden md:block'>Contact Now</span>
                         </a>
                     </div>
                 </div>
