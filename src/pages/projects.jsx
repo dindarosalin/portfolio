@@ -168,7 +168,7 @@ const Projects = () => {
                             <div key={project.id} className="source-sans hover:shadow-lg transition duration-500 ease-in-out max-w-sm rounded overflow-hidden p-2 card shadow-md">
                                 <img className="w-full rounded-sm" src={project.image} alt={project.title} />
                                 <div className="mt-2">
-                                    <p className="font-md text-red-dark text-lg">{project.role}</p>
+                                    <p className="font-md text-red-dark dark:text-white text-lg">{project.role}</p>
                                     <div className="font-bold text-2xl playfair-display">{project.title}</div>
                                     <p className="m-2">
                                         {project.description}
@@ -253,7 +253,7 @@ const Projects = () => {
             </div>
             <div className='mt-4 flex justify-center'>
                 {visibleProjects < projectData.length && (
-                    <button onClick={loadMore} className='flex-auto p-2 hover:shadow-lg transition duration-300 ease-in-out justify-center border text-center border-red-dark rounded-md'>Load More</button>
+                    <button onClick={loadMore} className='flex-auto p-2 hover:shadow-lg transition duration-300 ease-in-out justify-center border text-center border-red-dark dark:border-pink-darker rounded-md'>Load More</button>
                 )}
             </div>
         </section>
