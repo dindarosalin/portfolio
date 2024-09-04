@@ -6,7 +6,7 @@ const experiences = () => {
       id: 1,
       companyName: "Media Center Poliwangi",
       companyLink: "https://www.instagram.com/mediacenter.poliwangi",
-      description: "Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia. Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia.",
+      description: "Collaborated with the Media Center team at Poliwangi as a content writer, handling tasks such as planning and managing content for various official platforms of Politeknik Negeri Banyuwangi.",
       position: "Copywriter",
       type: "Part-time",
       duration: "March 2022 - March 2024",
@@ -16,7 +16,7 @@ const experiences = () => {
       id: 2,
       companyName: "Vocational School Graduate Academy",
       companyLink: "https://digitalent.kominfo.go.id/",
-      description: "Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia. Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia.",
+      description: "Graduated from the Vocational School Graduate Academy program by Kominfo as a Junior Graphic Designer and successfully obtained a BNSP certification for Junior Graphic Designer with a final score of 82.",
       position: "Junior Graphic Designer",
       type: "Course",
       duration: "October 2022",
@@ -26,7 +26,7 @@ const experiences = () => {
       id: 3,
       companyName: "Vocational School Graduate Academy",
       companyLink: "https://digitalent.kominfo.go.id/",
-      description: "Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia. Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia.",
+      description: "Graduated from the Vocational School Graduate Academy program by Kominfo as a junior web developer and successfully earned the BNSP Junior Web Developer Designer certification with a final score of 88.",
       position: "Junior Web Developer",
       type: "Course",
       duration: "August 2023",
@@ -36,7 +36,7 @@ const experiences = () => {
       id: 4,
       companyName: "Dicoding Indonesia",
       companyLink: "https://www.dicoding.com/",
-      description: "Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia. Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia.",
+      description: "Successfully completed the SIB Batch 5 program at Dicoding Indonesia as a Front-End and Back-End Web Developer, finishing all courses materials and projects.",
       position: "Frontend and Backend Web Developer",
       type: "Course",
       duration: "Aug-Dec 2023",
@@ -46,7 +46,7 @@ const experiences = () => {
       id: 5,
       companyName: "Tinggalklik",
       companyLink: "https://tinggalklik.co/",
-      description: "Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia. Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia.",
+      description: "Worked as part of the front-end web development team as an intern at TinggalKlik Indonesia, successfully completing several company projects using React JS and TypeScript.",
       position: "Frontend Web Developer",
       type: "Internship",
       duration: "Jan-March 2024",
@@ -56,7 +56,7 @@ const experiences = () => {
       id: 6,
       companyName: "ADS Digital Partner",
       companyLink: "https://adsdigitalpartner.co.id/",
-      description: "Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia. Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia.",
+      description: "Successfully completed the MSIB Batch 6 program as a Full-Stack Web Developer, working on several projects using Laravel and Bootstrap in collaboration with the team.",
       position: "Fullstack Web Developer",
       type: "Internship",
       duration: "Feb-June 2024",
@@ -66,7 +66,7 @@ const experiences = () => {
       id: 7,
       companyName: "Abarobotics",
       companyLink: "https://www.abarobotics.com/",
-      description: "Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia. Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia.",
+      description: "Interned as a Full-Stack Web Developer, developing several web projects with the team using Laravel.",
       position: "Fullstack Web Developer",
       type: "Internship",
       duration: "July 2024 - Present",
@@ -83,7 +83,9 @@ const experiences = () => {
           <p className="font-medium text-xl source-sans text-red-dark">Experiences</p>
           <h1 className="playfair-display font-bold text-3xl text-center text-pink-primary">My Experiences</h1>
           <div className='flex justify-center'>
-            <p className='w-full md:w-1/2 text-md justify-center'>Lorem ipsum odor amet, consectetuer adipiscing elit. Dis molestie nunc adipiscing at enim sociosqu potenti lacinia.</p>
+            <p className='w-full md:w-1/2 text-md justify-center'>
+              Here are some of my most recent internship and work experiences.
+            </p>
           </div>
         </article>
         <div className='mt-8'>
@@ -94,13 +96,13 @@ const experiences = () => {
             >
               {index % 2 === 0 ? (
                 <>
-                  <div className="sm:col-span-3 order-2 sm:order-1">
+                  <div className="sm:col-span-3 order-2 sm:order-1 md:text-end">
                     <p className="font-medium text-xl source-sans text-red-dark">{experience.position}</p>
                     <a
                       href={experience.companyLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="playfair-display font-bold text-2xl text-center md:text-end text-pink-primary"
+                      className="playfair-display font-bold text-2xl text-pink-primary"
                     >
                       {experience.companyName}
                     </a>
@@ -118,13 +120,13 @@ const experiences = () => {
                   <div className="sm:col-span-2 order-1 sm:order-1">
                     <img src={experience.imageUrl} alt={experience.companyName} className="rounded-lg h-32 md:h-52 w-full sm:w-auto" />
                   </div>
-                  <div className="sm:col-span-3 order-2 sm:order-2">
+                  <div className="sm:col-span-3 order-2 sm:order-2 text-center md:text-start">
                     <p className="font-medium text-xl source-sans text-red-dark">{experience.position}</p>
                     <a
                       href={experience.companyLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="playfair-display font-bold text-2xl text-center text-pink-primary"
+                      className="playfair-display font-bold text-2xl md:text-start text-pink-primary"
                     >
                       {experience.companyName}
                     </a>

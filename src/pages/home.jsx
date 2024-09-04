@@ -1,7 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-cards';
-import { EffectCards } from 'swiper/modules';
+import { EffectCreative } from 'swiper/modules';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 
@@ -11,30 +11,46 @@ const home = () => {
             <div className="flex flex-col md:flex-row items-center justify-center">
                 <div className="w-full md:w-1/4 mb-6 md:mb-0">
                     <Swiper
-                        // effect={'cards'}
                         grabCursor={true}
-                        modules={[EffectCards]}
-                        className="mySwiper"
+                        effect={'creative'}
+                        creativeEffect={{
+                          prev: {
+                            shadow: false,
+                            translate: ['-80%', 0, -200],
+                          },
+                          next: {
+                            shadow: false,
+                            translate: ['80%', 0, -200],
+                          },
+                        }}
+                        modules={[EffectCreative]}
+                        className="mySwiper2"
                     >
                         <SwiperSlide>
-                            <img src={"profile-pink.jpg"} alt="" className="h-40 md:h-60 w-auto rounded-md" />
+                            <img src={"images/galleries/profile-pink.jpg"} alt="" className="h-40 md:h-60 w-auto rounded-md" />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src={"profile-pink.jpg"} alt="" className="h-40 md:h-60 w-auto rounded-md" />
+                            <img src={"images/galleries/profile-1.jpg"} alt="" className="h-40 md:h-60 w-auto rounded-md" />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src={"profile-pink.jpg"} alt="" className="h-40 md:h-60 w-auto rounded-md" />
+                            <img src={"images/galleries/profile-2.jpg"} alt="" className="h-40 md:h-60 w-auto rounded-md" />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src={"profile-pink.jpg"} alt="" className="h-40 md:h-60 w-auto rounded-md" />
+                            <img src={"images/galleries/profile-3.jpg"} alt="" className="h-40 md:h-60 w-auto rounded-md" />
                         </SwiperSlide>
                         <SwiperSlide>
-                            <img src={"profile-pink.jpg"} alt="" className="h-40 md:h-60 w-auto rounded-md" />
+                            <img src={"images/galleries/profile-4.jpg"} alt="" className="h-40 md:h-60 w-auto rounded-md" />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src={"images/galleries/profile-5.jpg"} alt="" className="h-40 md:h-60 w-auto rounded-md" />
+                        </SwiperSlide>
+                        <SwiperSlide>
+                            <img src={"images/galleries/profile-6.jpg"} alt="" className="h-40 md:h-60 w-auto rounded-md" />
                         </SwiperSlide>
                     </Swiper>
                 </div>
                 <div className="w-full text-start md:w-2/4 m-6">
-                    <h1 className="text-h1 font-bold text-heading1 my-heading leading-h1 text-left text-pink-darker playfair-display mb-4">
+                    <h1 className="text-h2 md:text-h1 font-bold text-heading2 md:text-heading1 my-heading leading-h2 md:leading-h1 text-left text-pink-darker playfair-display mb-4">
                         Hello There! My <br />name is Dinda Rosalin. <br /> I’m a Student
                     </h1>
                     <button>
