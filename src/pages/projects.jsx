@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+import { faArrowUpRightFromSquare, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Projects = () => {
@@ -92,87 +92,172 @@ const Projects = () => {
         },
     ];
 
-    const [filterType, setFilterType] = useState('all');
+    const [filterType, setFilterType] = useState([]);
+    const [visibleProjects, setVisibleProjects] = useState(2);
+    const [projectsToShow, setProjectsToShow] = useState(projectData.slice(0, visibleProjects));
 
-    const handleFilterChange = (type) => {
-        setFilterType(type);
+    const loadMore = () => {
+        setVisibleProjects(prevVisible => prevVisible + 5);
+        setProjectsToShow(projectData.slice(0, visibleProjects + 5));
     };
 
-    const filteredProjects = filterType === 'all'
-        ? projectData
-        : projectData.filter(project => project.type === filterType);
+    const handleFilterChange = (type) => {
+        setFilterType(prevFilters =>
+            prevFilters.includes(type)
+                ? prevFilters.filter(filter => filter !== type)
+                : [...prevFilters, type]
+        );
+    };
+
+    const filteredProjects = filterType.length === 0
+        ? projectsToShow
+        : projectsToShow.filter(project => filterType.includes(project.type));
 
     return (
-        <section id="projects" className="container px-5 pt-16">
-            <div className="mt-7">
-                <h2 className="text-3xl underline decoration-gold">My Recent <span className='text-gold font-bold'>Projects</span></h2>
-                <div>
-                    <ul className='flex gap-4 mt-4 md:justify-start justify-center'>
-                        <li
-                            className={`active:text-gold cursor-pointer hover:text-gold active:underline hover:underline transition duration-300 ease-in-out ${filterType === 'all' ? 'text-gold underline' : ''}`}
-                            onClick={() => handleFilterChange('all')}
-                        >
-                            All
-                        </li>
-                        <li
-                            className={`active:text-gold cursor-pointer hover:text-gold active:underline hover:underline transition duration-300 ease-in-out ${filterType === 'frontend' ? 'text-gold underline' : ''}`}
-                            onClick={() => handleFilterChange('frontend')}
-                        >
-                            Front End
-                        </li>
-                        <li
-                            className={`active:text-gold cursor-pointer hover:text-gold active:underline hover:underline transition duration-300 ease-in-out ${filterType === 'fullstack' ? 'text-gold underline' : ''}`}
-                            onClick={() => handleFilterChange('fullstack')}
-                        >
-                            Fullstack
-                        </li>
-                        <li
-                            className={`active:text-gold cursor-pointer hover:text-gold active:underline hover:underline transition duration-300 ease-in-out ${filterType === 'ui_designer' ? 'text-gold underline' : ''}`}
-                            onClick={() => handleFilterChange('ui_designer')}
-                        >
-                            Design
-                        </li>
-                    </ul>
-                </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mt-10 transition ease-in-out duration-300 ">
-                    {filteredProjects.map((project) => (
-                        <div key={project.id} className="hover:scale-105 transition cursor-pointer duration-500 ease-in-out max-w-sm rounded overflow-hidden outline-1 outline p-3 card hover:shadow-gold hover:shadow-md">
-                            <img className="w-full rounded-md" src={project.image} alt={project.title} />
-                            <div className="mt-2">
-                                <div className="font-bold text-xl">{project.title}</div>
-                                <p className="subtitle mb-2 italic text-light">{project.role}</p>
-                                <p className="text-white text-light mb-2">
-                                    {project.description}
-                                </p>
-                                <div className='flex flex-wrap gap-1'>
-                                    {Array.isArray(project.tech) && project.tech.map((techItem, index) => (
-                                        <h5 key={index} className='text-gold italic text-sm'>
-                                            #{techItem}
-                                        </h5>
-                                    ))}
+        <section id="projects" className='px-5 pt-16 container'>
+            <div className="grid grid-cols-3 gap-4">
+                <div className="col-span-3 md:col-span-2">
+                    <div className='p-2 border rounded-md border-red-dark'>
+                        <h2 className="text-3xl playfair-display font-bold">Projects</h2>
+                    </div>
+                    <div className='md:hidden'>
+                        <ul className='flex mt-4 md:justify-start justify-center'>
+                            <li>
+                                <label
+                                    className={`checkbox flex justify-between items-center px-3 cursor-pointer active:text-pink-darker transition duration-300 ease-in-out ${filterType.includes('fullstack') ? 'text-pink-darker' : ''}`}
+                                >
+                                    <p className="text-md me-1">Fullstack</p>
+                                    <input
+                                        type="checkbox"
+                                        className="text-pink-darker w-4 h-4 bg-pink-secondary checked:text-pink-primary focus:ring-pink-primary"
+                                        checked={filterType.includes('fullstack')}
+                                        onChange={() => handleFilterChange('fullstack')}
+                                    />
+                                </label>
+                            </li>
+                            <li>
+                                <label
+                                    className={`checkbox flex justify-between items-center px-3 cursor-pointer active:text-pink-darker transition duration-300 ease-in-out ${filterType.includes('fullstack') ? 'text-pink-darker' : ''}`}
+                                >
+                                    <p className="text-md me-1">Frontend</p>
+                                    <input
+                                        type="checkbox"
+                                        className="text-pink-darker w-4 h-4 bg-pink-secondary checked:text-pink-primary focus:ring-pink-primary"
+                                        checked={filterType.includes('frontend')}
+                                        onChange={() => handleFilterChange('frontend')}
+                                    />
+                                </label>
+                            </li>
+                            <li>
+                                <label
+                                    className={`checkbox flex justify-between items-center px-3 cursor-pointer active:text-pink-darker transition duration-300 ease-in-out ${filterType.includes('fullstack') ? 'text-pink-darker' : ''}`}
+                                >
+                                    <p className="text-md me-1">Design</p>
+                                    <input
+                                        type="checkbox"
+                                        className="text-pink-darker w-4 h-4 bg-pink-secondary checked:text-pink-primary focus:ring-pink-primary"
+                                        checked={filterType.includes('ui_designer')}
+                                        onChange={() => handleFilterChange('ui_designer')}
+                                    />
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-7 mt-10 transition ease-in-out duration-300 ">
+                        {filteredProjects.map((project) => (
+                            <div key={project.id} className="source-sans hover:shadow-lg transition duration-500 ease-in-out max-w-sm rounded overflow-hidden p-2 card shadow-md">
+                                <img className="w-full rounded-sm" src={project.image} alt={project.title} />
+                                <div className="mt-2">
+                                    <p className="font-md text-red-dark text-lg">{project.role}</p>
+                                    <div className="font-bold text-2xl playfair-display">{project.title}</div>
+                                    <p className="m-2">
+                                        {project.description}
+                                    </p>
+                                </div>
+                                <div className="m-4 flex justify-center gap-5 mb-0">
+                                    {project.demoLink && (
+                                        <a target="_blank" href={project.demoLink}
+                                            className="flex flex-row gap-1 items-center hover:shadow-lg transition cursor-pointer duration-500 ease-in-out shadow-sm outline-offset-2 rounded-md py-2 px-3 mb-2 text-sm bg-pink-darker text-white">
+                                            <FontAwesomeIcon icon={faArrowUpRightFromSquare} /> <p className='hidden md:block'>Demo</p>
+                                        </a>
+                                    )}
+                                    {project.repositoryLink && (
+                                        <a
+                                            target="_blank"
+                                            href={project.repositoryLink}
+                                            className="flex flex-row gap-1 items-center hover:shadow-lg transition cursor-pointer duration-500 ease-in-out shadow-sm outline-offset-2 rounded-md py-2 px-3 mb-2 text-sm bg-pink-darker text-white">
+                                            <FontAwesomeIcon icon={faGithub} /> <p className='hidden md:block'>Repository</p>
+                                        </a>
+                                    )}
                                 </div>
                             </div>
-                            <div className="m-4 flex justify-center gap-5 mb-0">
-                                {project.demoLink && (
-                                    <a target="_blank" href={project.demoLink}
-                                        className="hover:shadow-md hover:shadow-gold hover:scale-105 transition cursor-pointer duration-500 ease-in-out shadow-sm shadow-gold outline-offset-2 rounded-full py-2 px-3 mb-2 text-sm">
-                                        <FontAwesomeIcon icon={faArrowUpRightFromSquare} /> Demo
-                                    </a>
-                                )}
-                                {project.repositoryLink && (
-                                    <a
-                                        target="_blank"
-                                        href={project.repositoryLink}
-                                        className="hover:shadow-md hover:shadow-gold hover:scale-105 transition cursor-pointer duration-500 ease-in-out shadow-sm shadow-gold outline-offset-2 rounded-full py-2 px-3 mb-2 text-sm">
-                                        <FontAwesomeIcon icon={faGithub} /> Repository
-                                    </a>
-                                )}
-                            </div>
+                        ))}
+                    </div>
+                </div>
+                <div className="col-span-3 md:col-span-1 source-sans hidden md:block">
+                    <form className="max-w-md mx-auto">
+                        <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only">Search</label>
+                        <div className="relative">
+                            <input type="search" disabled id="default-search" className="block w-full p-4 ps-10 text-sm text-gray-900 border border-red-dark rounded-md focus:ring-pink-darker focus:border-pink-darker " placeholder="Search Projects" required />
+                            <button type="submit" className="text-white absolute end-2.5 bottom-2.5 bg-pink-darker hover:bg-pink-darker focus:outline-none focus:pink-secondary font-medium rounded-md text-sm px-4 py-2">
+                                <FontAwesomeIcon icon={faMagnifyingGlass} />
+                            </button>
                         </div>
-                    ))}
+                    </form>
+                    <div className='border border-red-dark p-2 rounded-md mt-10'>
+                        <h2 className="text-lg font-bold uppercase text-red-dark">Projects Category</h2>
+                        <ul>
+                            <li>
+                                <label
+                                    className={`checkbox flex justify-between items-center px-3 cursor-pointer active:text-pink-darker transition duration-300 ease-in-out ${filterType.includes('fullstack') ? 'text-pink-darker' : ''}`}
+                                >
+                                    <p className="text-lg">Full Stack</p>
+                                    <input
+                                        type="checkbox"
+                                        className="text-pink-darker w-4 h-4 bg-pink-secondary checked:text-pink-primary focus:ring-pink-primary"
+                                        checked={filterType.includes('fullstack')}
+                                        onChange={() => handleFilterChange('fullstack')}
+                                    />
+                                </label>
+                            </li>
+                            <li>
+                                <label
+                                    className={`checkbox flex justify-between items-center px-3 cursor-pointer active:text-pink-darker transition duration-300 ease-in-out ${filterType.includes('frontend') ? 'text-pink-darker' : ''}`}
+                                >
+                                    <p className="text-lg">Front End</p>
+                                    <input
+                                        type="checkbox"
+                                        className="text-pink-darker w-4 h-4 bg-pink-secondary checked:text-pink-primary focus:ring-pink-primary"
+                                        checked={filterType.includes('frontend')}
+                                        onChange={() => handleFilterChange('frontend')}
+                                    />
+                                </label>
+                            </li>
+                            <li>
+                                <label
+                                    className={`checkbox flex justify-between items-center px-3 cursor-pointer active:text-pink-darker transition duration-300 ease-in-out ${filterType.includes('ui_designer') ? 'text-pink-darker' : ''}`}
+                                >
+                                    <p className="text-lg">Design</p>
+                                    <input
+                                        type="checkbox"
+                                        className="text-pink-darker w-4 h-4 bg-pink-secondary checked:text-pink-primary focus:ring-pink-primary"
+                                        checked={filterType.includes('ui_designer')}
+                                        onChange={() => handleFilterChange('ui_designer')}
+                                    />
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+
                 </div>
             </div>
+            <div className='mt-4 flex justify-center'>
+                {visibleProjects < projectData.length && (
+                    <button onClick={loadMore} className='flex-auto p-2 hover:shadow-lg transition duration-300 ease-in-out justify-center border text-center border-red-dark rounded-md'>Load More</button>
+                )}
+            </div>
         </section>
+
     );
 };
 

@@ -12,7 +12,7 @@ const Navbar = () => {
 
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                if (window.scrollY >= sectionTop - 60) { // Sesuaikan dengan tinggi navbar
+                if (window.scrollY >= sectionTop - 60) {
                     currentSection = section.getAttribute('id');
                 }
             });
@@ -26,8 +26,8 @@ const Navbar = () => {
 
     return (
         <nav className="z-10 bg-white rounded-full px-5 py-3 w-max mx-auto bg-white/25 backdrop-blur-sm sticky top-4 mb-5 duration-300 ease-in-out">
-            <ul className="flex text-white text-md font-light justify-between gap-5">
-                <li className={`hover:font-medium hover:text-gold duration-300 ease-in-out ${activeSection === 'about' ? 'text-gold font-medium' : ''}`}>
+            <ul className="flex text-md font-normal text-pink-primary justify-between gap-5">
+                <li className={`hover:font-medium hover:text-pink-darker duration-300 ease-in-out ${activeSection === 'about' ? 'text-pink-darker font-medium' : ''}`}>
                     <a href="#about" className="sm:hidden">
                         <FontAwesomeIcon icon={faUser} />
                     </a>
@@ -36,7 +36,7 @@ const Navbar = () => {
                         About
                     </a>
                 </li>
-                <li className={`hover:font-medium hover:text-gold duration-300 ease-in-out ${activeSection === 'projects' ? 'text-gold font-medium' : ''}`}>
+                <li className={`hover:font-medium hover:text-pink-darker duration-300 ease-in-out ${activeSection === 'projects' ? 'text-pink-darker font-medium' : ''}`}>
                     <a href="#projects" className="sm:hidden">
                         <FontAwesomeIcon icon={faTable} />
                     </a>
@@ -45,7 +45,7 @@ const Navbar = () => {
                         Projects
                     </a>
                 </li>
-                <li className={`hover:font-medium hover:text-gold duration-300 ease-in-out ${activeSection === 'experiences' ? 'text-gold font-medium' : ''}`}>
+                <li className={`hover:font-medium hover:text-pink-darker duration-300 ease-in-out ${activeSection === 'experiences' ? 'text-pink-darker font-medium' : ''}`}>
                     <a href="#experiences" className="sm:hidden">
                         <FontAwesomeIcon icon={faList} />
                     </a>
@@ -54,7 +54,7 @@ const Navbar = () => {
                         Experiences
                     </a>
                 </li>
-                <li className={`hover:font-medium hover:text-gold duration-300 ease-in-out ${activeSection === 'contact' ? 'text-gold font-medium' : ''}`}>
+                <li className={`hover:font-medium hover:text-pink-darker duration-300 ease-in-out ${activeSection === 'contact' ? 'text-pink-darker font-medium' : ''}`}>
                     <a href="#contact" className="sm:hidden">
                         <FontAwesomeIcon icon={faAddressBook} />
                     </a>
