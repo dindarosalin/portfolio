@@ -117,7 +117,7 @@ const Projects = () => {
         <section id="projects" className='px-5 pt-16 container'>
             <div className="grid grid-cols-3 gap-4">
                 <div className="col-span-3 md:col-span-2">
-                    <div className='p-2 border rounded-md border-red-dark'>
+                    <div className='p-2 border rounded-md border-red-dark dark:border-pink-primary'>
                         <h2 className="text-3xl playfair-display font-bold">Projects</h2>
                     </div>
                     <div className='md:hidden'>

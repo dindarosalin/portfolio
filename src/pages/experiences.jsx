@@ -80,7 +80,7 @@ const experiences = () => {
     <section id="experiences" className="my-7 container pt-16">
       <div>
         <article className='text-center'>
-          <p className="font-medium text-xl source-sans text-red-dark">Experiences</p>
+          <p className="font-medium text-xl source-sans text-red-dark dark:text-pink-darker">Experiences</p>
           <h1 className="playfair-display font-bold text-3xl text-center text-pink-primary">My Experiences</h1>
           <div className='flex justify-center'>
             <p className='w-full md:w-1/2 text-md justify-center'>
@@ -97,7 +97,7 @@ const experiences = () => {
               {index % 2 === 0 ? (
                 <>
                   <div className="sm:col-span-3 order-2 sm:order-1 md:text-end">
-                    <p className="font-medium text-xl source-sans text-red-dark">{experience.position}</p>
+                    <p className="font-medium text-xl source-sans text-red-dark dark:text-pink-darker">{experience.position}</p>
                     <a
                       href={experience.companyLink}
                       target="_blank"

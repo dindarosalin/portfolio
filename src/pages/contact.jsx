@@ -42,7 +42,7 @@ const contact = () => {
                     </div>
                 </div>
                 <div className="md:w-1/3 justify-center flex flex-col place-content-center">
-                    <table className='text-start table-auto border-separate border-spacing-2 border border-2 border-red-dark rounded-md'>
+                    <table className='text-start table-auto border-separate border-spacing-2 border border-2 border-red-dark dark:border-pink-darker rounded-md'>
                         <caption className='caption-top font-bold uppercase'>Get In Touch</caption>
                         <tr className="shadow-sm m-3">
                             <th className="text-start font-medium">Address:</th>
@@ -83,13 +83,13 @@ const contact = () => {
                             target="_blank"
                             href='docs/RESUME_DINDA_ROSALIN_HUSNA_2024.pdf' download="RESUME_DINDA_ROSALIN_HUSNA_2024.pdf"
                             className="hover:shadow-lg m-2 transition cursor-pointer duration-500 ease-in-out shadow-sm outline-offset-2 rounded-md py-2 px-3 mb-2 text-sm bg-pink-darker text-white">
-                            <FontAwesomeIcon icon={faDownload} /> Get My CV
+                            <FontAwesomeIcon icon={faDownload} /> <p className='hidden md:block'>Get My CV</p>
                         </a>
                         <a
                             target="_blank"
                             href="https://wa.me/+6282333525346"
                             className="hover:shadow-lg m-2 transition cursor-pointer duration-500 ease-in-out shadow-sm outline-offset-2 rounded-md py-2 px-3 mb-2 text-sm bg-pink-darker text-white">
-                            <FontAwesomeIcon icon={faPhone} /> Contact Now
+                            <FontAwesomeIcon icon={faPhone} /> <p className='hidden md:block'>Contact Now</p>
                         </a>
                     </div>
                 </div>

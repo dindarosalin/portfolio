@@ -10,7 +10,7 @@ const about = () => {
           </p>
         </div>
         <div className="md:w-1/2">
-          <table className='text-start table-auto border-separate border-spacing-2 border border-2 border-red-dark rounded-md'>
+          <table className='text-start table-auto border-separate border-spacing-2 border border-2 border-red-dark dark:border-pink-darker rounded-md'>
             <caption className='caption-top font-bold uppercase'>education</caption>
             <tr className="shadow-sm">
               <th className="text-start font-medium">University:</th>
