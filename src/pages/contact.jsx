@@ -1,4 +1,4 @@
-import { faGithub, faLinkedin, faMediumM, faSquareInstagram } from '@fortawesome/free-brands-svg-icons'
+import { faGithub, faGitlab, faLinkedin, faMediumM, faSquareInstagram } from '@fortawesome/free-brands-svg-icons'
 import { faDownload, faPaperPlane, faPhone } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -74,6 +74,9 @@ const contact = () => {
                                 </a>
                                 <a href="https://github.com/dindarosalin" target="_blank" rel="noopener noreferrer">
                                     <FontAwesomeIcon icon={faGithub} className='h-6 text-pink-primary hover:text-pink-darker transition ease-in-out duration-300 m-1' />
+                                </a>
+                                <a href="https://gitlab.com/dindarosalin" target="_blank" rel="noopener noreferrer">
+                                    <FontAwesomeIcon icon={faGitlab} className='h-6 text-pink-primary hover:text-pink-darker transition ease-in-out duration-300 m-1' />
                                 </a>
                             </td>
                         </tr>
