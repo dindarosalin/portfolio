@@ -1,36 +1,102 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
 @import "styles/about.css";
 @import "styles/projects.css";
+
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
 
+
+/* ========================================
+   THEME
+======================================== */
+
 :root {
-  line-height: 1.5;
+    /* Colors */
+    --color-background: rgb(255, 255, 255);
 
-  color-scheme: light dark;
+    --color-pink-light: rgb(251, 243, 243);
+    --color-pink-secondary: rgb(254, 230, 230);
+    --color-pink-primary: rgba(255, 202, 208, 1);
+    --color-pink-dark: rgba(255, 121, 136, 1);
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    --color-red-dark: rgba(59, 4, 5, 1);
 
-  --pink-light: rgb(251, 243, 243);
-  --pink-primary: rgba(255, 202, 208, 1);
-  --pink-secondary: rgb(254, 230, 230);
-  --pink-darker: rgba(255, 121, 136, 1);
-  --red-dark: rgba(59, 4, 5, 1);
+    --color-text: rgba(59, 4, 5, 1);
+    --color-text-muted: rgb(107, 87, 88);
+
+    /* Borders */
+    --color-border: rgba(59, 4, 5, 0.2);
+
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Source Sans 3', sans-serif;
+
+    /* Effects */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --shadow-soft: 0 4px 12px rgba(59, 4, 5, 0.08);
+
+    /* Layout */
+    --content-width: 1280px;
 }
 
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    margin: 0;
+
+    background-color: var(--color-background);
+    color: var(--color-text);
+
+    line-height: 1.5;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ========================================
+   TYPOGRAPHY
+======================================== */
+
 .source-sans {
-  font-family: 'Source Sans 3', sans-serif;
-  font-optical-sizing: auto;
+    font-family: var(--font-body);
+    font-optical-sizing: auto;
 }
 
 .playfair-display {
-  font-family: "Playfair Display", serif;
-  font-optical-sizing: auto;
+    font-family: var(--font-heading);
+    font-optical-sizing: auto;
 }
+
+
+/* ========================================
+   COMMON ELEMENTS
+======================================== */
+
+button,
+a {
+    transition:
+        color 0.3s ease,
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* ========================================
+   ANIMATIONS
+======================================== */
 
 @keyframes fadeIn {
     from {
