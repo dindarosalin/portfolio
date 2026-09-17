@@ -1,28 +1,31 @@
 import { useEffect, useState } from 'react'
 import { getProjects } from '../../services/projectServices'
 
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
-import {
-    faArrowUpRightFromSquare,
-    faMagnifyingGlass
-} from '@fortawesome/free-solid-svg-icons'
+import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+import SectionTitle from '../../components/sectionTitle'
+import ProjectCard from '../../components/projectCard'
 
 const Projects = () => {
     const [projects, setProjects] = useState([])
     const [filterType, setFilterType] = useState([])
-    const [visibleProjects, setVisibleProjects] = useState(2)
+    const [searchQuery, setSearchQuery] = useState('')
+    const [visibleProjects, setVisibleProjects] = useState(4)
+
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
+
+    const [isFiltering, setIsFiltering] = useState(false)
 
     useEffect(() => {
         async function loadProjects() {
             try {
+                setLoading(true)
+
                 const data = await getProjects()
 
                 setProjects(data)
-
-                console.log('📁 Projects dari Supabase:', data)
             } catch (err) {
                 console.error('❌ Gagal mengambil projects:', err)
                 setError(err.message)
@@ -34,188 +37,255 @@ const Projects = () => {
         loadProjects()
     }, [])
 
-    const loadMore = () => {
-        setVisibleProjects(prevVisible => prevVisible + 5)
-    }
+    const categories = [
+        ...new Set(
+            projects
+                .map(project => project.category)
+                .filter(Boolean)
+        ),
+    ]
 
-    const handleFilterChange = (type) => {
-        setFilterType(prevFilters =>
-            prevFilters.includes(type)
-                ? prevFilters.filter(filter => filter !== type)
-                : [...prevFilters, type]
-        )
-    }
+    const filteredProjects = projects.filter(project => {
+        const matchesCategory =
+            filterType.length === 0 ||
+            filterType.includes(project.category)
 
-    const filteredProjects =
-        filterType.length === 0
-            ? projects
-            : projects.filter(project =>
-                filterType.includes(project.type)
-            )
+        const search = searchQuery.toLowerCase().trim()
+
+        const matchesSearch =
+            project.title?.toLowerCase().includes(search) ||
+            project.description?.toLowerCase().includes(search) ||
+            project.category?.toLowerCase().includes(search)
+
+        return matchesCategory && matchesSearch
+    })
 
     const projectsToShow = filteredProjects.slice(0, visibleProjects)
 
+    const handleFilterChange = (category) => {
+        setIsFiltering(true)
+
+        setFilterType(prevFilters =>
+            prevFilters.includes(category)
+                ? prevFilters.filter(filter => filter !== category)
+                : [...prevFilters, category]
+        )
+
+        setVisibleProjects(4)
+
+        setTimeout(() => {
+            setIsFiltering(false)
+        }, 250)
+    }
+
+    const handleSearchChange = (event) => {
+        setIsFiltering(true)
+
+        setSearchQuery(event.target.value)
+        setVisibleProjects(4)
+
+        setTimeout(() => {
+            setIsFiltering(false)
+        }, 250)
+    }
+
+    const handleLoadMore = () => {
+        setIsFiltering(true)
+
+        setTimeout(() => {
+            setVisibleProjects(prevVisible => prevVisible + 4)
+            setIsFiltering(false)
+        }, 150)
+    }
+
     return (
-        <section id="projects" className="px-5 pt-16 container">
+        <section
+            id="projects"
+            className="px-5 pt-16 container"
+        >
 
-            <div className="grid grid-cols-3 gap-4">
+            <SectionTitle title="Projects" />
 
-                <div className="col-span-3 md:col-span-2">
+            {/* Filter */}
+            <div className="mt-6 border border-red-dark p-4 rounded-md source-sans">
 
-                    <div className="p-2 border rounded-md border-red-dark dark:border-pink-primary">
-                        <h2 className="text-3xl playfair-display font-bold">
-                            Projects
-                        </h2>
-                    </div>
+                <div className="flex flex-col lg:flex-row lg:items-center gap-4">
 
-                    {/* Loading */}
-                    {loading && (
-                        <p className="mt-10 text-center">
-                            Loading projects...
-                        </p>
-                    )}
-
-                    {/* Error */}
-                    {error && (
-                        <p className="mt-10 text-center">
-                            Failed to load projects.
-                        </p>
-                    )}
-
-                    {/* Projects */}
-                    {!loading && !error && (
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-7 mt-10 transition ease-in-out duration-300">
-
-                            {projectsToShow.map((project) => (
-
-                                <div
-                                    key={project.id}
-                                    className="source-sans hover:shadow-lg transition duration-500 ease-in-out max-w-sm rounded overflow-hidden p-2 card shadow-md"
-                                >
-
-                                    {/* Image */}
-                                    {project.image_url && (
-                                        <img
-                                            className="w-full rounded-sm"
-                                            src={project.image_url}
-                                            alt={project.title}
-                                        />
-                                    )}
-
-                                    <div className="mt-2">
-
-                                        <div className="font-bold text-2xl playfair-display">
-                                            {project.title}
-                                        </div>
-
-                                        <p className="m-2">
-                                            {project.description}
-                                        </p>
-
-                                    </div>
-
-                                    <div className="m-4 flex justify-center gap-5 mb-0">
-
-                                        {project.project_url && (
-                                            <a
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                href={project.project_url}
-                                                className="flex flex-row gap-1 items-center hover:shadow-lg transition cursor-pointer duration-500 ease-in-out shadow-sm outline-offset-2 rounded-md py-2 px-3 mb-2 text-sm bg-pink-darker text-white"
-                                            >
-                                                <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-
-                                                <p className="hidden md:block">
-                                                    Demo
-                                                </p>
-                                            </a>
-                                        )}
-
-                                        {project.github_url && (
-                                            <a
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                href={project.github_url}
-                                                className="flex flex-row gap-1 items-center hover:shadow-lg transition cursor-pointer duration-500 ease-in-out shadow-sm outline-offset-2 rounded-md py-2 px-3 mb-2 text-sm bg-pink-darker text-white"
-                                            >
-                                                <FontAwesomeIcon icon={faGithub} />
-
-                                                <p className="hidden md:block">
-                                                    Repository
-                                                </p>
-                                            </a>
-                                        )}
-
-                                    </div>
-
-                                </div>
-
-                            ))}
-
-                        </div>
-                    )}
-
-                </div>
-
-                {/* Sidebar */}
-                <div className="col-span-3 md:col-span-1 source-sans hidden md:block">
-
-                    <form className="max-w-md mx-auto">
-
+                    {/* Search */}
+                    <form
+                        className="w-full lg:w-1/3"
+                        onSubmit={(event) => event.preventDefault()}
+                    >
                         <label
-                            htmlFor="default-search"
-                            className="mb-2 text-sm font-medium text-gray-900 sr-only"
+                            htmlFor="project-search"
+                            className="sr-only"
                         >
-                            Search
+                            Search Projects
                         </label>
 
                         <div className="relative">
 
                             <input
                                 type="search"
-                                disabled
-                                id="default-search"
-                                className="block w-full p-4 ps-10 text-sm text-gray-900 border border-red-dark rounded-md focus:ring-pink-darker focus:border-pink-darker"
+                                id="project-search"
+                                value={searchQuery}
+                                onChange={handleSearchChange}
+                                className="block w-full p-3 ps-10 text-sm text-gray-900 border border-red-dark rounded-md focus:ring-pink-darker focus:border-pink-darker transition"
                                 placeholder="Search Projects"
                             />
 
-                            <button
-                                type="submit"
-                                className="text-white absolute end-2.5 bottom-2.5 bg-pink-darker hover:bg-pink-darker focus:outline-none font-medium rounded-md text-sm px-4 py-2"
-                            >
-                                <FontAwesomeIcon icon={faMagnifyingGlass} />
-                            </button>
+                            <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                                <FontAwesomeIcon
+                                    icon={faMagnifyingGlass}
+                                    className="text-pink-darker"
+                                />
+                            </div>
 
                         </div>
-
                     </form>
 
-                    <div className="border border-red-dark p-2 rounded-md mt-10">
+                    {/* Category */}
+                    <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
 
-                        <h2 className="text-lg font-bold uppercase text-red-dark">
-                            Projects Category
-                        </h2>
+                        <span className="text-sm font-bold text-red-dark">
+                            Category:
+                        </span>
 
-                        <p className="text-sm mt-2">
-                            Category filtering akan kita aktifkan lagi
-                            setelah field category ditambahkan ke database.
-                        </p>
+                        {categories.map(category => (
+                            <label
+                                key={category}
+                                className="flex items-center gap-2 cursor-pointer text-sm"
+                            >
+                                <input
+                                    type="checkbox"
+                                    checked={filterType.includes(category)}
+                                    onChange={() =>
+                                        handleFilterChange(category)
+                                    }
+                                    className="accent-pink-darker"
+                                />
+
+                                <span>
+                                    {category}
+                                </span>
+                            </label>
+                        ))}
 
                     </div>
 
                 </div>
-
             </div>
+
+            {/* Loading */}
+            {loading && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7 mt-10">
+
+                    {[1, 2, 3, 4].map(item => (
+                        <div
+                            key={item}
+                            className="rounded overflow-hidden p-2 shadow-md animate-pulse"
+                        >
+                            <div className="w-full h-40 rounded-sm bg-gray-200" />
+
+                            <div className="mt-4 space-y-3">
+                                <div className="h-6 w-3/4 bg-gray-200 rounded" />
+
+                                <div className="h-4 w-full bg-gray-200 rounded" />
+
+                                <div className="h-4 w-5/6 bg-gray-200 rounded" />
+
+                                <div className="flex gap-2">
+                                    <div className="h-6 w-16 bg-gray-200 rounded-full" />
+                                    <div className="h-6 w-20 bg-gray-200 rounded-full" />
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+
+                </div>
+            )}
+
+            {/* Error */}
+            {!loading && error && (
+                <p className="mt-10 text-center">
+                    Failed to load projects.
+                </p>
+            )}
+
+            {/* Projects */}
+            {!loading && !error && (
+                <>
+                    {projectsToShow.length > 0 ? (
+
+                        <div
+                            className={`
+                                grid
+                                grid-cols-1
+                                sm:grid-cols-2
+                                lg:grid-cols-3
+                                xl:grid-cols-4
+                                gap-7
+                                mt-10
+                                transition-all
+                                duration-300
+                                ease-in-out
+                                ${
+                                    isFiltering
+                                        ? 'opacity-40 translate-y-1'
+                                        : 'opacity-100 translate-y-0'
+                                }
+                            `}
+                        >
+
+                            {projectsToShow.map(project => (
+                                <div
+                                    key={project.id}
+                                    className="animate-[fadeIn_0.3s_ease-in-out]"
+                                >
+                                    <ProjectCard
+                                        project={project}
+                                    />
+                                </div>
+                            ))}
+
+                        </div>
+
+                    ) : (
+
+                        <div className="mt-10 text-center source-sans">
+                            <p className="text-gray-500">
+                                No projects found.
+                            </p>
+                        </div>
+
+                    )}
+                </>
+            )}
 
             {/* Load More */}
             {!loading &&
                 !error &&
-                visibleProjects < projects.length && (
-                    <div className="mt-4 flex justify-center">
+                visibleProjects < filteredProjects.length && (
+                    <div className="mt-8 flex justify-center">
 
                         <button
-                            onClick={loadMore}
-                            className="flex-auto p-2 hover:shadow-lg transition duration-300 ease-in-out justify-center border text-center border-red-dark dark:border-pink-darker rounded-md"
+                            onClick={handleLoadMore}
+                            disabled={isFiltering}
+                            className="
+                                px-6
+                                py-2
+                                border
+                                border-red-dark
+                                dark:border-pink-darker
+                                rounded-md
+                                transition-all
+                                duration-300
+                                ease-in-out
+                                hover:shadow-lg
+                                hover:-translate-y-0.5
+                                disabled:opacity-50
+                                disabled:cursor-not-allowed
+                            "
                         >
                             Load More
                         </button>
