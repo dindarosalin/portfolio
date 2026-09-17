@@ -9,7 +9,7 @@ const home = () => {
     return (
         <section id="home" className="pt-16 container">
             <div className="flex flex-col md:flex-row items-center justify-center">
-                <div className="w-full md:w-1/4 mb-6 md:mb-0">
+                {/* <div className="w-full md:w-1/4 mb-6 md:mb-0">
                     <Swiper
                         grabCursor={true}
                         effect={'creative'}
@@ -48,7 +48,7 @@ const home = () => {
                             <img src={"images/galleries/profile-6.jpg"} alt="" className="h-40 md:h-60 w-auto rounded-md" />
                         </SwiperSlide>
                     </Swiper>
-                </div>
+                </div> */}
                 <div className="w-full text-start md:w-2/4 m-6">
                     <h1 className="text-h2 md:text-h1 font-bold text-heading2 md:text-heading1 my-heading leading-h2 md:leading-h1 text-left text-pink-darker playfair-display mb-4">
                         Hello There! My <br />name is Dinda Rosalin. <br /> I’m a Student
