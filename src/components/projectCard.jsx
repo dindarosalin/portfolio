@@ -20,82 +20,180 @@ const skillColors = {
 
 const ProjectCard = ({ project }) => {
     return (
-        <div className="source-sans hover:shadow-lg transition duration-500 ease-in-out max-w-sm rounded overflow-hidden p-2 card shadow-md">
+        <div className="
+            source-sans
+            h-full
+            flex
+            flex-col
+            rounded
+            overflow-hidden
+            p-2
+            card
+            shadow-md
+            hover:shadow-lg
+            transition
+            duration-500
+            ease-in-out
+        ">
 
-            {project.image_url && (
-                <img
-                    className="w-full rounded-sm"
-                    src={project.image_url}
-                    alt={project.title}
-                />
-            )}
+            {/* Image */}
+            {/* Image */}
+            <div className="w-full h-40 shrink-0">
+                {project.image_url ? (
+                    <img
+                        className="w-full h-full object-cover rounded-sm"
+                        src={project.image_url}
+                        alt={project.title}
+                    />
+                ) : (
+                    <div className="
+            w-full
+            h-full
+            rounded-sm
+            border
+            border-red-dark/20
+            bg-pink-light/40
+            flex
+            flex-col
+            items-center
+            justify-center
+            text-center
+            px-4
+        ">
+                        <p className="text-sm font-medium text-pink-darker">
+                            Project Preview
+                        </p>
 
-            <div className="mt-2">
-                <div className="font-bold text-2xl playfair-display">
-                    {project.title}
-                </div>
-
-                {project.category && (
-                    <p className="mt-1 text-sm italic underline text-pink-darker">
-                        {project.category}
-                    </p>
-                )}
-
-                <p className="m-2">
-                    {project.description}
-                </p>
-
-                {project.project_skills?.length > 0 && (
-                    <div className="m-2 flex flex-wrap gap-2">
-                        {project.project_skills.map((projectSkill) => {
-                            const skillName = projectSkill.skills?.name
-
-                            return (
-                                <span
-                                    key={projectSkill.skill_id}
-                                    className={`
-                                        inline-block
-                                        rounded-full
-                                        border
-                                        px-3
-                                        py-1
-                                        text-xs
-                                        font-medium
-                                        ${skillColors[skillName] || 'bg-gray-100 text-gray-700 border-gray-300'}
-                                    `}
-                                >
-                                    {skillName}
-                                </span>
-                            )
-                        })}
+                        <p className="text-xs text-gray-500 mt-1">
+                            Image preview is not available
+                        </p>
                     </div>
                 )}
             </div>
 
-            <div className="m-4 flex justify-center gap-5 mb-0">
+
+            {/* Content */}
+            <div className="mt-3 flex flex-col flex-1">
+
+                {/* Title */}
+                <div className="font-bold text-2xl playfair-display min-h-[3.5rem]">
+                    {project.title}
+                </div>
+
+
+                {/* Category */}
+                <div className="min-h-[1.5rem] mt-1">
+                    {project.category && (
+                        <p className="text-sm italic underline text-pink-darker">
+                            {project.category}
+                        </p>
+                    )}
+                </div>
+
+
+                {/* Description */}
+                <p className="mt-2 text-sm leading-relaxed line-clamp-3">
+                    {project.description}
+                </p>
+
+
+                {/* Skills */}
+                <div className="mt-3 min-h-[2rem] flex flex-wrap gap-2">
+                    {project.project_skills?.map((projectSkill) => {
+                        const skillName = projectSkill.skills?.name
+
+                        return (
+                            <span
+                                key={projectSkill.skill_id}
+                                className={`
+                                    inline-block
+                                    rounded-full
+                                    border
+                                    px-3
+                                    py-1
+                                    text-xs
+                                    font-medium
+                                    ${skillColors[skillName] ||
+                                    'bg-gray-100 text-gray-700 border-gray-300'}
+                                `}
+                            >
+                                {skillName}
+                            </span>
+                        )
+                    })}
+                </div>
+
+            </div>
+
+
+            {/* Buttons */}
+            <div className="
+                mt-4
+                flex
+                justify-center
+                gap-3
+                min-h-[2.5rem]
+            ">
 
                 {project.project_url && (
                     <a
                         target="_blank"
                         rel="noopener noreferrer"
                         href={project.project_url}
-                        className="flex flex-row gap-1 items-center hover:shadow-lg transition cursor-pointer duration-500 ease-in-out shadow-sm outline-offset-2 rounded-md py-2 px-3 mb-2 text-sm bg-pink-darker text-white"
+                        className="
+                            flex
+                            gap-1
+                            items-center
+                            hover:shadow-lg
+                            transition
+                            cursor-pointer
+                            duration-500
+                            ease-in-out
+                            shadow-sm
+                            rounded-md
+                            py-2
+                            px-3
+                            text-sm
+                            bg-pink-darker
+                            text-white
+                        "
                     >
-                        <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+                        <FontAwesomeIcon
+                            icon={faArrowUpRightFromSquare}
+                        />
+
                         <p className="hidden md:block">
                             Demo
                         </p>
                     </a>
                 )}
 
+
                 {project.github_url && (
                     <a
                         target="_blank"
                         rel="noopener noreferrer"
                         href={project.github_url}
-                        className="flex flex-row gap-1 items-center hover:shadow-lg transition cursor-pointer duration-500 ease-in-out shadow-sm outline-offset-2 rounded-md py-2 px-3 mb-2 text-sm bg-pink-darker text-white"
+                        className="
+                            flex
+                            gap-1
+                            items-center
+                            hover:shadow-lg
+                            transition
+                            cursor-pointer
+                            duration-500
+                            ease-in-out
+                            shadow-sm
+                            rounded-md
+                            py-2
+                            px-3
+                            text-sm
+                            bg-pink-darker
+                            text-white
+                        "
                     >
                         <FontAwesomeIcon icon={faGithub} />
+
                         <p className="hidden md:block">
                             Repository
                         </p>
@@ -103,6 +201,7 @@ const ProjectCard = ({ project }) => {
                 )}
 
             </div>
+
         </div>
     )
 }

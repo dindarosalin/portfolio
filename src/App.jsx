@@ -14,7 +14,7 @@ function App() {
     <>
       <Navbar />
 
-      <main>
+      <main className="flex-1">
         <Home />
         <About />
         <Projects />
