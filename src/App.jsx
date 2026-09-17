@@ -1,13 +1,13 @@
 import './App.css'
 
-import Navbar from './pages/public/navbar'
+import Navbar from './components/navbar'
 import Home from './pages/public/home'
 import About from './pages/public/about'
 import Projects from './pages/public/projects'
 import Experiences from './pages/public/experiences'
 import Certifications from './pages/public/certifications'
-import Contact from './pages/public/contact'
-import Footer from './pages/public/footer'
+import ConnectForm from './pages/public/connectForm'
+import Footer from './components/footer'
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
         <Projects />
         <Experiences />
         <Certifications />
-        <Contact />
+        <ConnectForm />
       </main>
 
       <Footer />
