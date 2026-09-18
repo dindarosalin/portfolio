@@ -46,6 +46,8 @@ const ExperienceCard = ({
                     w-px
                     -translate-x-1/2
                     bg-border
+                    border-2
+                    border-pink-dark
                 "
             >
                 {/* Dot */}
