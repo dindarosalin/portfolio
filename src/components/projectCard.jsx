@@ -16,14 +16,13 @@ const ProjectCard = ({ project }) => {
                 border
                 border-border
                 bg-surface
-                p-2
+                p-2.5
                 font-body
                 shadow-soft
-                transition-all
                 duration-300
                 ease-in-out
                 hover:-translate-y-1
-                hover:shadow-lg
+                hover:shadow-md
             "
         >
             {/* Image */}
@@ -126,9 +125,8 @@ const ProjectCard = ({ project }) => {
             {/* Buttons */}
             <div
                 className="
-                    mt-4
+                    my-1.5
                     flex
-                    min-h-[2.5rem]
                     justify-center
                     gap-3
                 "
@@ -138,20 +136,14 @@ const ProjectCard = ({ project }) => {
                         <FontAwesomeIcon
                             icon={faArrowUpRightFromSquare}
                         />
-
-                        <span className="hidden md:inline">
-                            Demo
-                        </span>
+                        Live Preview
                     </Button>
                 )}
 
                 {project.github_url && (
                     <Button href={project.github_url}>
                         <FontAwesomeIcon icon={faGithub} />
-
-                        <span className="hidden md:inline">
-                            Repository
-                        </span>
+                        Repository
                     </Button>
                 )}
             </div>

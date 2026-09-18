@@ -1,21 +1,22 @@
 import { useEffect, useState } from 'react'
 import { getProjects } from '../../services/projectServices'
 
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import {
+    faChevronDown,
+    faMagnifyingGlass,
+} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import SectionTitle from '../../components/sectionTitle'
 import ProjectCard from '../../components/projectCard'
-
 import Button from '../../components/button'
-
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
 const Projects = () => {
     const [projects, setProjects] = useState([])
     const [filterType, setFilterType] = useState([])
     const [searchQuery, setSearchQuery] = useState('')
     const [visibleProjects, setVisibleProjects] = useState(4)
+    const [newProjectIds, setNewProjectIds] = useState([])
 
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
@@ -44,12 +45,12 @@ const Projects = () => {
     const categories = [
         ...new Set(
             projects
-                .map(project => project.category)
+                .map((project) => project.category)
                 .filter(Boolean)
         ),
     ]
 
-    const filteredProjects = projects.filter(project => {
+    const filteredProjects = projects.filter((project) => {
         const matchesCategory =
             filterType.length === 0 ||
             filterType.includes(project.category)
@@ -64,14 +65,20 @@ const Projects = () => {
         return matchesCategory && matchesSearch
     })
 
-    const projectsToShow = filteredProjects.slice(0, visibleProjects)
+    const projectsToShow = filteredProjects.slice(
+        0,
+        visibleProjects
+    )
 
     const handleFilterChange = (category) => {
         setIsFiltering(true)
+        setNewProjectIds([])
 
-        setFilterType(prevFilters =>
+        setFilterType((prevFilters) =>
             prevFilters.includes(category)
-                ? prevFilters.filter(filter => filter !== category)
+                ? prevFilters.filter(
+                      (filter) => filter !== category
+                  )
                 : [...prevFilters, category]
         )
 
@@ -84,6 +91,7 @@ const Projects = () => {
 
     const handleSearchChange = (event) => {
         setIsFiltering(true)
+        setNewProjectIds([])
 
         setSearchQuery(event.target.value)
         setVisibleProjects(4)
@@ -94,12 +102,18 @@ const Projects = () => {
     }
 
     const handleLoadMore = () => {
-        setIsFiltering(true)
+        const nextVisibleProjects = filteredProjects.slice(
+            visibleProjects,
+            visibleProjects + 4
+        )
 
-        setTimeout(() => {
-            setVisibleProjects(prevVisible => prevVisible + 4)
-            setIsFiltering(false)
-        }, 150)
+        setNewProjectIds(
+            nextVisibleProjects.map((project) => project.id)
+        )
+
+        setVisibleProjects(
+            visibleProjects + nextVisibleProjects.length
+        )
     }
 
     return (
@@ -115,111 +129,149 @@ const Projects = () => {
                 lg:px-10
             "
         >
-            <SectionTitle title="Projects" subtitle="Explore our latest projects" />
-                <div className="mt-6 flex flex-col gap-4 lg:flex-row lg:items-center">
+            <SectionTitle
+                title="Projects"
+                subtitle="Explore my latest projects"
+            />
 
-                    {/* Search */}
-                    <form
-                        className="w-full lg:w-1/3"
-                        onSubmit={(event) => event.preventDefault()}
+            {/* Search & Category */}
+            <div
+                className="
+                    mt-6
+                    flex
+                    flex-col
+                    gap-4
+                    lg:flex-row
+                    lg:items-center
+                "
+            >
+                {/* Search */}
+                <form
+                    className="w-full lg:w-1/3"
+                    onSubmit={(event) =>
+                        event.preventDefault()
+                    }
+                >
+                    <label
+                        htmlFor="project-search"
+                        className="sr-only"
                     >
-                        <label
-                            htmlFor="project-search"
-                            className="sr-only"
-                        >
-                            Search Projects
-                        </label>
+                        Search Projects
+                    </label>
 
-                        <div className="relative">
+                    <div className="relative">
+                        <input
+                            type="search"
+                            id="project-search"
+                            value={searchQuery}
+                            onChange={handleSearchChange}
+                            placeholder="Search Projects"
+                            className="
+                                block
+                                w-full
+                                rounded-md
+                                border
+                                border-border
+                                bg-background
+                                py-3
+                                pe-3
+                                ps-10
+                                text-sm
+                                text-text
+                                shadow-soft
+                                placeholder:text-muted
+                                outline-none
+                                transition
+                                duration-300
+                                focus:border-pink-dark
+                                focus:ring-2
+                                focus:ring-pink-primary
+                            "
+                        />
+
+                        <div
+                            className="
+                                pointer-events-none
+                                absolute
+                                inset-y-0
+                                start-0
+                                flex
+                                items-center
+                                ps-3
+                            "
+                        >
+                            <FontAwesomeIcon
+                                icon={faMagnifyingGlass}
+                                className="text-pink-dark"
+                            />
+                        </div>
+                    </div>
+                </form>
+
+                {/* Category */}
+                <div
+                    className="
+                        flex
+                        flex-wrap
+                        items-center
+                        gap-x-5
+                        gap-y-2
+                    "
+                >
+                    <span className="text-sm font-bold text-text">
+                        Category:
+                    </span>
+
+                    {categories.map((category) => (
+                        <label
+                            key={category}
+                            className="
+                                flex
+                                cursor-pointer
+                                items-center
+                                gap-2
+                                text-sm
+                                text-text
+                            "
+                        >
                             <input
-                                type="search"
-                                id="project-search"
-                                value={searchQuery}
-                                onChange={handleSearchChange}
-                                placeholder="Search Projects"
+                                type="checkbox"
+                                checked={filterType.includes(
+                                    category
+                                )}
+                                onChange={() =>
+                                    handleFilterChange(
+                                        category
+                                    )
+                                }
                                 className="
-                                    shadow-soft
-                                    block
-                                    w-full
-                                    rounded-md
-                                    border
-                                    border-border
-                                    bg-background
-                                    py-3
-                                    pe-3
-                                    ps-10
-                                    text-sm
-                                    text-text
-                                    placeholder:text-muted
-                                    outline-none
-                                    transition
-                                    focus:border-pink-dark
-                                    focus:ring-2
-                                    focus:ring-pink-primary
+                                    h-4
+                                    w-4
+                                    cursor-pointer
+                                    accent-pink-dark
                                 "
                             />
 
-                            <div
-                                className="
-                                    pointer-events-none
-                                    absolute
-                                    inset-y-0
-                                    start-0
-                                    flex
-                                    items-center
-                                    ps-3
-                                "
-                            >
-                                <FontAwesomeIcon
-                                    icon={faMagnifyingGlass}
-                                    className="text-pink-dark"
-                                />
-                            </div>
-                        </div>
-                    </form>
-
-                    {/* Category */}
-                    <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-                        <span className="text-sm font-bold text-text">
-                            Category:
-                        </span>
-
-                        {categories.map(category => (
-                            <label
-                                key={category}
-                                className="
-                                    flex
-                                    cursor-pointer
-                                    items-center
-                                    gap-2
-                                    text-sm
-                                    text-text
-                                "
-                            >
-                                <input
-                                    type="checkbox"
-                                    checked={filterType.includes(category)}
-                                    onChange={() =>
-                                        handleFilterChange(category)
-                                    }
-                                    className="
-                                        h-4
-                                        w-4
-                                        cursor-pointer
-                                        accent-pink-dark
-                                    "
-                                />
-
-                                <span>{category}</span>
-                            </label>
-                        ))}
-                    </div>
+                            <span>{category}</span>
+                        </label>
+                    ))}
                 </div>
+            </div>
 
             {/* Loading */}
             {loading && (
-                <div className="mt-10 grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                    {[1, 2, 3, 4].map(item => (
+                <div
+                    className="
+                        mt-10
+                        grid
+                        grid-cols-1
+                        gap-7
+                        sm:grid-cols-2
+                        lg:grid-cols-3
+                        xl:grid-cols-4
+                    "
+                >
+                    {[1, 2, 3, 4].map((item) => (
                         <div
                             key={item}
                             className="
@@ -232,18 +284,61 @@ const Projects = () => {
                                 shadow-soft
                             "
                         >
-                            <div className="h-40 w-full rounded-sm bg-pink-light" />
+                            <div
+                                className="
+                                    h-40
+                                    w-full
+                                    rounded-sm
+                                    bg-pink-light
+                                "
+                            />
 
                             <div className="mt-4 space-y-3">
-                                <div className="h-6 w-3/4 rounded bg-pink-light" />
+                                <div
+                                    className="
+                                        h-6
+                                        w-3/4
+                                        rounded
+                                        bg-pink-light
+                                    "
+                                />
 
-                                <div className="h-4 w-full rounded bg-pink-light" />
+                                <div
+                                    className="
+                                        h-4
+                                        w-full
+                                        rounded
+                                        bg-pink-light
+                                    "
+                                />
 
-                                <div className="h-4 w-5/6 rounded bg-pink-light" />
+                                <div
+                                    className="
+                                        h-4
+                                        w-5/6
+                                        rounded
+                                        bg-pink-light
+                                    "
+                                />
 
                                 <div className="flex gap-2">
-                                    <div className="h-6 w-16 rounded-full bg-pink-light" />
-                                    <div className="h-6 w-20 rounded-full bg-pink-light" />
+                                    <div
+                                        className="
+                                            h-6
+                                            w-16
+                                            rounded-full
+                                            bg-pink-light
+                                        "
+                                    />
+
+                                    <div
+                                        className="
+                                            h-6
+                                            w-20
+                                            rounded-full
+                                            bg-pink-light
+                                        "
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -281,16 +376,27 @@ const Projects = () => {
                                 }
                             `}
                         >
-                            {projectsToShow.map(project => (
-                                <div
-                                    key={project.id}
-                                    className="animate-[fadeIn_0.3s_ease-in-out]"
-                                >
-                                    <ProjectCard
-                                        project={project}
-                                    />
-                                </div>
-                            ))}
+                            {projectsToShow.map((project) => {
+                                const isNewProject =
+                                    newProjectIds.includes(
+                                        project.id
+                                    )
+
+                                return (
+                                    <div
+                                        key={project.id}
+                                        className={
+                                            isNewProject
+                                                ? 'animate-fade-in'
+                                                : ''
+                                        }
+                                    >
+                                        <ProjectCard
+                                            project={project}
+                                        />
+                                    </div>
+                                )
+                            })}
                         </div>
                     ) : (
                         <div className="mt-10 text-center">
@@ -303,19 +409,23 @@ const Projects = () => {
             )}
 
             {/* Load More */}
-                {!loading &&
-                    !error &&
-                    visibleProjects < filteredProjects.length && (
-                        <div className="mt-8 flex justify-center">
-                            <Button
-                                onClick={handleLoadMore}
-                                disabled={isFiltering}
-                            >
-                                <FontAwesomeIcon icon={faChevronDown} />
-                                Load More
-                            </Button>
-                        </div>
-                    )}
+            {!loading &&
+                !error &&
+                visibleProjects <
+                    filteredProjects.length && (
+                    <div className="mt-8 flex justify-center">
+                        <Button
+                            onClick={handleLoadMore}
+                            disabled={isFiltering}
+                        >
+                            <span>Load More</span>
+
+                            <FontAwesomeIcon
+                                icon={faChevronDown}
+                            />
+                        </Button>
+                    </div>
+                )}
         </section>
     )
 }
