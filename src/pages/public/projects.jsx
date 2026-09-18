@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import SectionTitle from '../../components/sectionTitle'
 import ProjectCard from '../../components/projectCard'
 import Button from '../../components/button'
+import FormInput from '../../components/formInput'
 
 const Projects = () => {
     const [projects, setProjects] = useState([])
@@ -152,60 +153,17 @@ const Projects = () => {
                         event.preventDefault()
                     }
                 >
-                    <label
-                        htmlFor="project-search"
-                        className="sr-only"
-                    >
-                        Search Projects
-                    </label>
-
-                    <div className="relative">
-                        <input
-                            type="search"
-                            id="project-search"
-                            value={searchQuery}
-                            onChange={handleSearchChange}
-                            placeholder="Search Projects"
-                            className="
-                                block
-                                w-full
-                                rounded-md
-                                border
-                                border-border
-                                bg-background
-                                py-3
-                                pe-3
-                                ps-10
-                                text-sm
-                                text-text
-                                shadow-soft
-                                placeholder:text-muted
-                                outline-none
-                                transition
-                                duration-300
-                                focus:border-pink-dark
-                                focus:ring-2
-                                focus:ring-pink-primary
-                            "
-                        />
-
-                        <div
-                            className="
-                                pointer-events-none
-                                absolute
-                                inset-y-0
-                                start-0
-                                flex
-                                items-center
-                                ps-3
-                            "
-                        >
-                            <FontAwesomeIcon
-                                icon={faMagnifyingGlass}
-                                className="text-pink-dark"
-                            />
-                        </div>
-                    </div>
+                    <FormInput
+                        id="project-search"
+                        name="project-search"
+                        label="Search Projects"
+                        type="search"
+                        placeholder="Search Projects"
+                        value={searchQuery}
+                        onChange={handleSearchChange}
+                        icon={faMagnifyingGlass}
+                        showLabel={false}
+                    />
                 </form>
 
                 {/* Category */}
