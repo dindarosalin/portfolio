@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { getExperiences } from '../../services/experienceServices'
 
 import ExperienceCard from '../../components/experienceCard'
+import SectionTitle from '../../components/sectionTitle'
 
 const Experiences = () => {
     const [experiences, setExperiences] = useState([])
@@ -36,72 +37,62 @@ const Experiences = () => {
     }, [])
 
     const experiencesDescending = [...experiences].sort(
-        (a, b) => b.id - a.id
+        (a, b) =>
+            new Date(b.start_date) -
+            new Date(a.start_date)
     )
-
-    if (loading) {
-        return (
-            <section
-                id="experiences"
-                className="my-7 container pt-16"
-            >
-                <p className="text-center">
-                    Loading experiences...
-                </p>
-            </section>
-        )
-    }
-
-    if (error) {
-        return (
-            <section
-                id="experiences"
-                className="my-7 container pt-16"
-            >
-                <p className="text-center">
-                    Failed to load experiences.
-                </p>
-            </section>
-        )
-    }
 
     return (
         <section
             id="experiences"
-            className="my-7 container pt-16"
+            className="
+                mx-auto
+                max-w-content
+                px-6
+                py-16
+                font-body
+                sm:px-8
+                lg:px-10
+            "
         >
-            <article className="text-center">
+            <SectionTitle
+                title="Experiences"
+                subtitle="My professional and learning experiences"
+            />
 
-                <p className="font-medium text-xl source-sans text-red-dark dark:text-white">
-                    Experiences
-                </p>
-
-                <h1 className="playfair-display font-bold text-3xl text-center text-pink-primary">
-                    My Experiences
-                </h1>
-
-                <div className="flex justify-center">
-                    <p className="w-full md:w-1/2 text-md">
-                        Here are some of my most recent internship
-                        and work experiences.
+            {/* Loading */}
+            {loading && (
+                <div className="mt-10 text-center">
+                    <p className="text-sm text-muted">
+                        Loading experiences...
                     </p>
                 </div>
+            )}
 
-            </article>
+            {/* Error */}
+            {!loading && error && (
+                <div className="mt-10 text-center">
+                    <p className="text-sm text-muted">
+                        Failed to load experiences.
+                    </p>
+                </div>
+            )}
 
-            <div className="mt-8">
-
-                {experiencesDescending.map(
-                    (experience, index) => (
-                        <ExperienceCard
-                            key={experience.id}
-                            experience={experience}
-                            reverse={index % 2 !== 0}
-                        />
-                    )
-                )}
-
-            </div>
+            {/* Experiences */}
+            {!loading && !error && (
+                <div className="mt-10">
+                    {experiencesDescending.map(
+                        (experience, index) => (
+                            <ExperienceCard
+                                key={experience.id}
+                                experience={experience}
+                                reverse={index % 2 !== 0}
+                                isLast={index === experiencesDescending.length - 1}
+                            />
+                        )
+                    )}
+                </div>
+            )}
         </section>
     )
 }

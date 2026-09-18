@@ -12,7 +12,7 @@ const employmentTypeColors = {
         'bg-yellow-100 text-yellow-700 border-yellow-300',
 }
 
-const ExperienceCard = ({ experience, reverse = false }) => {
+const ExperienceCard = ({ experience, reverse = false, isLast = false }) => {
 
     const formatDuration = () => {
         const startDate = experience.start_date
@@ -54,7 +54,6 @@ const ExperienceCard = ({ experience, reverse = false }) => {
 
                 <div className="w-px h-full bg-red-dark/30" />
             </div>
-
 
             {/* LEFT SIDE */}
             <div
