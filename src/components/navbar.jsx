@@ -65,6 +65,7 @@ const Navbar = () => {
                 border border-border
                 bg-surface/80
                 px-5 py-3
+                font-body
                 shadow-soft
                 backdrop-blur-sm
             "
@@ -74,7 +75,7 @@ const Navbar = () => {
                     flex
                     justify-between
                     gap-5
-                    text-md
+                    text-sm
                     font-normal
                     text-pink-primary
                 "
