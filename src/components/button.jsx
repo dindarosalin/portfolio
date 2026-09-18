@@ -1,14 +1,21 @@
-const Button = ({ children, href, onClick, type = 'button' }) => {
+const Button = ({
+    children,
+    href,
+    onClick,
+    type = 'button',
+    disabled = false,
+}) => {
     const className = `
         inline-flex
         items-center
         justify-center
+        gap-2
         rounded-full
         border
         border-border
         bg-surface/80
-        px-5
-        py-3
+        px-3
+        py-1
         font-body
         text-sm
         font-normal
@@ -22,6 +29,8 @@ const Button = ({ children, href, onClick, type = 'button' }) => {
         focus:outline-none
         focus:ring-2
         focus:ring-pink-primary
+        disabled:cursor-not-allowed
+        disabled:opacity-50
     `
 
     if (href) {
@@ -41,6 +50,7 @@ const Button = ({ children, href, onClick, type = 'button' }) => {
         <button
             type={type}
             onClick={onClick}
+            disabled={disabled}
             className={className}
         >
             {children}

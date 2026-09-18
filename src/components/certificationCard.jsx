@@ -1,4 +1,6 @@
+import { faEye } from '@fortawesome/free-solid-svg-icons'
 import Button from './button'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const CertificationCard = ({ certificate }) => {
 
@@ -111,6 +113,7 @@ const CertificationCard = ({ certificate }) => {
             {certificate.credential_url && (
                 <div className="mt-3">
                     <Button href={certificate.credential_url}>
+                        <FontAwesomeIcon icon={faEye} />
                         View Credential
                     </Button>
                 </div>

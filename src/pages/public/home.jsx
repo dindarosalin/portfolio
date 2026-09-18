@@ -41,7 +41,6 @@ const Home = () => {
                     <Button href="https://www.instagram.com/dindarosalin">
                         <FontAwesomeIcon
                             icon={faInstagram}
-                            className="me-2"
                         />
                         Lets be moots
                     </Button>
