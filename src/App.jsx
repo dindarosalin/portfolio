@@ -14,8 +14,8 @@ function App() {
     <PublicLayout>
       <Home />
       <About />
-      <Projects />
       <Experiences />
+      <Projects />
       <Certifications />
       <ConnectForm />
     </PublicLayout>

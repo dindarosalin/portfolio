@@ -17,15 +17,15 @@
     --color-background: rgb(255, 255, 255);
     --color-surface: rgb(255, 255, 255);
 
-    --color-pink-light: rgb(251, 243, 243);
-    --color-pink-secondary: rgb(254, 230, 230);
-    --color-pink-primary: rgb(255, 202, 208);
-    --color-pink-dark: rgb(255, 121, 136);
+    --color-pink-light: rgb(248, 235, 236);
+    --color-pink-secondary: rgb(250, 214, 216);
+    --color-pink-primary: rgb(255, 180, 189);
+    --color-pink-dark: rgb(235, 91, 108);
 
     --color-red-dark: rgb(59, 4, 5);
 
     --color-text: rgb(59, 4, 5);
-    --color-text-muted: rgb(107, 87, 88);
+    --color-text-muted: rgb(92, 70, 71);
 
     /* Borders */
     --color-border: rgba(59, 4, 5, 0.2);
@@ -43,7 +43,6 @@
     /* Layout */
     --content-width: 1280px;
 }
-
 
 html {
     scroll-behavior: smooth;

@@ -9,6 +9,8 @@ import ProjectCard from '../../components/projectCard'
 
 import Button from '../../components/button'
 
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
+
 const Projects = () => {
     const [projects, setProjects] = useState([])
     const [filterType, setFilterType] = useState([])
@@ -309,6 +311,7 @@ const Projects = () => {
                                 onClick={handleLoadMore}
                                 disabled={isFiltering}
                             >
+                                <FontAwesomeIcon icon={faChevronDown} />
                                 Load More
                             </Button>
                         </div>
