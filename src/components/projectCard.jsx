@@ -2,206 +2,159 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const skillColors = {
-    React: 'bg-blue-100 text-blue-700 border-blue-300',
-    JavaScript: 'bg-yellow-100 text-yellow-700 border-yellow-300',
-    TypeScript: 'bg-blue-100 text-blue-800 border-blue-300',
-    PHP: 'bg-indigo-100 text-indigo-700 border-indigo-300',
-    Laravel: 'bg-red-100 text-red-700 border-red-300',
-    Bootstrap: 'bg-purple-100 text-purple-700 border-purple-300',
-    TailwindCSS: 'bg-cyan-100 text-cyan-700 border-cyan-300',
-    'Tailwind CSS': 'bg-cyan-100 text-cyan-700 border-cyan-300',
-    MySQL: 'bg-orange-100 text-orange-700 border-orange-300',
-    Supabase: 'bg-emerald-100 text-emerald-700 border-emerald-300',
-    'Node.js': 'bg-green-100 text-green-700 border-green-300',
-    Express: 'bg-gray-100 text-gray-700 border-gray-300',
-    Vite: 'bg-purple-100 text-purple-700 border-purple-300',
-}
+import Button from './button'
 
 const ProjectCard = ({ project }) => {
     return (
-        <div className="
-            source-sans
-            h-full
-            flex
-            flex-col
-            rounded
-            overflow-hidden
-            p-2
-            card
-            shadow-md
-            hover:shadow-lg
-            transition
-            duration-500
-            ease-in-out
-        ">
-
+        <div
+            className="
+                flex
+                h-full
+                flex-col
+                overflow-hidden
+                rounded-md
+                border
+                border-border
+                bg-surface
+                p-2
+                font-body
+                shadow-soft
+                transition-all
+                duration-300
+                ease-in-out
+                hover:-translate-y-1
+                hover:shadow-lg
+            "
+        >
             {/* Image */}
-            {/* Image */}
-            <div className="w-full h-40 shrink-0">
+            <div className="h-40 w-full shrink-0">
                 {project.image_url ? (
                     <img
-                        className="w-full h-full object-cover rounded-sm"
+                        className="h-full w-full rounded-sm object-cover"
                         src={project.image_url}
                         alt={project.title}
                     />
                 ) : (
-                    <div className="
-            w-full
-            h-full
-            rounded-sm
-            border
-            border-red-dark/20
-            bg-pink-light/40
-            flex
-            flex-col
-            items-center
-            justify-center
-            text-center
-            px-4
-        ">
-                        <p className="text-sm font-medium text-pink-darker">
+                    <div
+                        className="
+                            flex
+                            h-full
+                            w-full
+                            flex-col
+                            items-center
+                            justify-center
+                            rounded-sm
+                            border
+                            border-border
+                            bg-pink-light/40
+                            px-4
+                            text-center
+                        "
+                    >
+                        <p className="text-sm font-medium text-pink-dark">
                             Project Preview
                         </p>
 
-                        <p className="text-xs text-gray-500 mt-1">
+                        <p className="mt-1 text-xs text-muted">
                             Image preview is not available
                         </p>
                     </div>
                 )}
             </div>
 
-
             {/* Content */}
-            <div className="mt-3 flex flex-col flex-1">
+            <div className="mt-3 flex flex-1 flex-col">
 
                 {/* Title */}
-                <div className="font-bold text-2xl playfair-display min-h-[3.5rem]">
+                <h3
+                    className="
+                        min-h-[3.5rem]
+                        font-heading
+                        text-2xl
+                        font-bold
+                        leading-tight
+                        text-text
+                    "
+                >
                     {project.title}
-                </div>
-
+                </h3>
 
                 {/* Category */}
-                <div className="min-h-[1.5rem] mt-1">
+                <div className="mt-1 min-h-[1.5rem]">
                     {project.category && (
-                        <p className="text-sm italic underline text-pink-darker">
+                        <p className="text-sm italic text-pink-dark underline">
                             {project.category}
                         </p>
                     )}
                 </div>
 
-
                 {/* Description */}
-                <p className="mt-2 text-sm leading-relaxed line-clamp-3">
+                <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-text">
                     {project.description}
                 </p>
 
-
                 {/* Skills */}
-                <div className="mt-3 min-h-[2rem] flex flex-wrap gap-2">
+                <div className="mt-3 flex min-h-[2rem] flex-wrap items-start gap-1.5">
                     {project.project_skills?.map((projectSkill) => {
                         const skillName = projectSkill.skills?.name
 
                         return (
                             <span
                                 key={projectSkill.skill_id}
-                                className={`
-                                    inline-block
+                                className="
+                                    inline-flex
+                                    items-center
                                     rounded-full
                                     border
-                                    px-3
+                                    border-border
+                                    bg-pink-light
+                                    px-2.5
                                     py-1
-                                    text-xs
-                                    font-medium
-                                    ${skillColors[skillName] ||
-                                    'bg-gray-100 text-gray-700 border-gray-300'}
-                                `}
+                                    text-[11px]
+                                    font-normal
+                                    leading-none
+                                    text-text
+                                "
                             >
                                 {skillName}
                             </span>
                         )
                     })}
                 </div>
-
             </div>
 
-
             {/* Buttons */}
-            <div className="
-                mt-4
-                flex
-                justify-center
-                gap-3
-                min-h-[2.5rem]
-            ">
-
+            <div
+                className="
+                    mt-4
+                    flex
+                    min-h-[2.5rem]
+                    justify-center
+                    gap-3
+                "
+            >
                 {project.project_url && (
-                    <a
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href={project.project_url}
-                        className="
-                            flex
-                            gap-1
-                            items-center
-                            hover:shadow-lg
-                            transition
-                            cursor-pointer
-                            duration-500
-                            ease-in-out
-                            shadow-sm
-                            rounded-md
-                            py-2
-                            px-3
-                            text-sm
-                            bg-pink-darker
-                            text-white
-                        "
-                    >
+                    <Button href={project.project_url}>
                         <FontAwesomeIcon
                             icon={faArrowUpRightFromSquare}
                         />
 
-                        <p className="hidden md:block">
+                        <span className="hidden md:inline">
                             Demo
-                        </p>
-                    </a>
+                        </span>
+                    </Button>
                 )}
-
 
                 {project.github_url && (
-                    <a
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        href={project.github_url}
-                        className="
-                            flex
-                            gap-1
-                            items-center
-                            hover:shadow-lg
-                            transition
-                            cursor-pointer
-                            duration-500
-                            ease-in-out
-                            shadow-sm
-                            rounded-md
-                            py-2
-                            px-3
-                            text-sm
-                            bg-pink-darker
-                            text-white
-                        "
-                    >
+                    <Button href={project.github_url}>
                         <FontAwesomeIcon icon={faGithub} />
 
-                        <p className="hidden md:block">
+                        <span className="hidden md:inline">
                             Repository
-                        </p>
-                    </a>
+                        </span>
+                    </Button>
                 )}
-
             </div>
-
         </div>
     )
 }

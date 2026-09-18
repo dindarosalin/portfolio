@@ -7,6 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import SectionTitle from '../../components/sectionTitle'
 import ProjectCard from '../../components/projectCard'
 
+import Button from '../../components/button'
+
 const Projects = () => {
     const [projects, setProjects] = useState([])
     const [filterType, setFilterType] = useState([])
@@ -299,38 +301,18 @@ const Projects = () => {
             )}
 
             {/* Load More */}
-            {!loading &&
-                !error &&
-                visibleProjects < filteredProjects.length && (
-                    <div className="mt-8 flex justify-center">
-                        <button
-                            onClick={handleLoadMore}
-                            disabled={isFiltering}
-                            className="
-                                rounded-md
-                                border
-                                border-red-dark
-                                bg-pink-primary
-                                px-6
-                                py-2
-                                text-sm
-                                font-medium
-                                text-red-dark
-                                shadow-soft
-                                transition-all
-                                duration-300
-                                ease-in-out
-                                hover:-translate-y-0.5
-                                hover:bg-pink-secondary
-                                hover:shadow-lg
-                                disabled:cursor-not-allowed
-                                disabled:opacity-50
-                            "
-                        >
-                            Load More
-                        </button>
-                    </div>
-                )}
+                {!loading &&
+                    !error &&
+                    visibleProjects < filteredProjects.length && (
+                        <div className="mt-8 flex justify-center">
+                            <Button
+                                onClick={handleLoadMore}
+                                disabled={isFiltering}
+                            >
+                                Load More
+                            </Button>
+                        </div>
+                    )}
         </section>
     )
 }

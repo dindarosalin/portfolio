@@ -1,6 +1,8 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInstagram } from '@fortawesome/free-brands-svg-icons'
 
-import SocialButton from '../../components/socialButton'
+// import SocialButton from '../../components/socialButton'
+import Button from '../../components/button'
 
 const Home = () => {
     return (
@@ -28,13 +30,23 @@ const Home = () => {
                         I’m a Student
                     </h1>
 
-                    <div className="mt-6">
+                    {/* <div className="mt-6">
                         <SocialButton
                             icon={faInstagram}
                             label="Lets be moots"
                             href="https://www.instagram.com/dindarosalin"
                         />
-                    </div>
+                    </div> */}
+                <div className="mt-6">
+                    <Button href="https://www.instagram.com/dindarosalin">
+                        <FontAwesomeIcon
+                            icon={faInstagram}
+                            className="me-2"
+                        />
+                        Lets be moots
+                    </Button>
+                </div>
+
                 </div>
 
                 {/* Visual Area */}
