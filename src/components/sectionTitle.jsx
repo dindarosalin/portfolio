@@ -1,7 +1,7 @@
 const SectionTitle = ({ title }) => {
     return (
-        <div className="p-2 border rounded-md border-red-dark dark:border-pink-primary">
-            <h2 className="text-3xl playfair-display font-bold">
+        <div className="rounded-md border border-border p-2">
+            <h2 className="font-heading text-3xl font-bold text-text">
                 {title}
             </h2>
         </div>

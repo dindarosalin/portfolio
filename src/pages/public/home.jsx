@@ -1,25 +1,45 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInstagram } from '@fortawesome/free-brands-svg-icons'
 
 import SocialButton from '../../components/socialButton'
 
 const Home = () => {
     return (
-        <section id="home" className="pt-16 container">
-            <div className="flex flex-col md:flex-row items-center justify-center">
-                
-                <div className="w-full text-start md:w-2/4 m-6">
-                    <h1 className="text-h2 md:text-h1 font-bold text-heading2 md:text-heading1 my-heading leading-h2 md:leading-h1 text-left text-pink-darker playfair-display mb-4">
+        <section
+            id="home"
+            className="mx-auto min-h-[80vh] max-w-content px-6 sm:px-8 lg:px-10"
+        >
+             <div className="grid min-h-[80vh] items-center gap-10 md:grid-cols-2">
+
+                {/* Introduction */}
+                <div className="text-center md:text-left">
+                    <h1
+                        className="
+                            font-heading
+                            text-h2
+                            font-bold
+                            leading-h2
+                            text-pink-dark
+                            md:text-h1
+                            md:leading-h1
+                        "
+                    >
                         Hello There! My <br />
                         name is Dinda Rosalin. <br />
                         I’m a Student
                     </h1>
 
-                    <SocialButton
-                        icon={faInstagram}
-                        label="Lets be moots"
-                        href="https://www.instagram.com/dindarosalin"
-                    />
+                    <div className="mt-6">
+                        <SocialButton
+                            icon={faInstagram}
+                            label="Lets be moots"
+                            href="https://www.instagram.com/dindarosalin"
+                        />
+                    </div>
+                </div>
+
+                {/* Visual Area */}
+                <div className="flex min-h-[280px] items-center justify-center">
+                    {/* Profile photo / illustration can be added here */}
                 </div>
 
             </div>

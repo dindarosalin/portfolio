@@ -57,25 +57,47 @@ const Navbar = () => {
     ]
 
     return (
-        <nav className="z-10 bg-white/25 backdrop-blur-sm rounded-full px-5 py-3 w-max mx-auto sticky top-4 mb-5 duration-300 ease-in-out">
-            <ul className="flex text-md font-normal text-pink-primary justify-between gap-5">
+        <nav
+            className="
+                sticky top-4 z-10
+                mx-auto mb-5 w-max
+                rounded-full
+                border border-border
+                bg-surface/80
+                px-5 py-3
+                shadow-soft
+                backdrop-blur-sm
+            "
+        >
+            <ul
+                className="
+                    flex
+                    justify-between
+                    gap-5
+                    text-md
+                    font-normal
+                    text-pink-primary
+                "
+            >
                 {navItems.map((item) => (
                     <li
                         key={item.id}
                         className={`
-                            hover:font-medium
-                            hover:text-pink-darker
                             duration-300
                             ease-in-out
-                            ${activeSection === item.id
-                                ? 'text-pink-darker font-medium'
-                                : ''
+                            hover:font-medium
+                            hover:text-pink-dark
+                            ${
+                                activeSection === item.id
+                                    ? 'font-medium text-pink-dark'
+                                    : ''
                             }
                         `}
                     >
                         <a
                             href={`#${item.id}`}
                             className="sm:hidden"
+                            aria-label={item.label}
                         >
                             <FontAwesomeIcon icon={item.icon} />
                         </a>

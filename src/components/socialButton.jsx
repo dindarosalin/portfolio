@@ -3,13 +3,42 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const SocialButton = ({ icon, label, href }) => {
     return (
         <a
+            href={href}
             target="_blank"
             rel="noreferrer"
-            href={href}
-            className="flex flex-row gap-1 justify-center items-center font-medium hover:shadow-lg transition cursor-pointer duration-500 ease-in-out shadow-sm outline-offset-2 rounded-md py-2 px-3 mb-2 text-sm bg-pink-darker text-white"
+            className="
+                inline-flex
+                items-center
+                justify-center
+                gap-2
+                rounded-md
+                border
+                border-red-dark
+                bg-pink-primary
+                px-4
+                py-2
+                text-sm
+                font-medium
+                text-red-dark
+                shadow-md
+                outline-offset-2
+                transition-all
+                duration-300
+                ease-in-out
+                hover:-translate-y-0.5
+                hover:bg-pink-secondary
+                hover:shadow-lg
+                focus:outline-none
+                focus:ring-2
+                focus:ring-pink-primary
+            "
         >
-            <FontAwesomeIcon icon={icon} className="h-4 w-4" />
-            <p>{label}</p>
+            <FontAwesomeIcon
+                icon={icon}
+                className="h-4 w-4"
+            />
+
+            <span>{label}</span>
         </a>
     )
 }
