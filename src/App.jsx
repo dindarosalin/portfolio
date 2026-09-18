@@ -1,30 +1,24 @@
 import './App.css'
 
-import Navbar from './components/navbar'
+import PublicLayout from './layouts/publicLayout'
+
 import Home from './pages/public/home'
 import About from './pages/public/about'
 import Projects from './pages/public/projects'
 import Experiences from './pages/public/experiences'
 import Certifications from './pages/public/certifications'
 import ConnectForm from './pages/public/connectForm'
-import Footer from './components/footer'
 
 function App() {
   return (
-    <>
-      <Navbar />
-
-      <main className="flex-1">
-        <Home />
-        <About />
-        <Projects />
-        <Experiences />
-        <Certifications />
-        <ConnectForm />
-      </main>
-
-      <Footer />
-    </>
+    <PublicLayout>
+      <Home />
+      <About />
+      <Projects />
+      <Experiences />
+      <Certifications />
+      <ConnectForm />
+    </PublicLayout>
   )
 }
 

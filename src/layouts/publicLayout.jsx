@@ -3,8 +3,7 @@ import Footer from '../components/footer'
 
 const PublicLayout = ({ children }) => {
     return (
-        <div className="min-h-screen flex flex-col">
-
+        <div className="min-h-screen flex flex-col bg-background text-text">
             <Navbar />
 
             <main className="flex-1">
@@ -12,7 +11,6 @@ const PublicLayout = ({ children }) => {
             </main>
 
             <Footer />
-
         </div>
     )
 }
