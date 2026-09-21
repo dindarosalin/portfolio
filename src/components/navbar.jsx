@@ -40,14 +40,14 @@ const Navbar = () => {
             icon: faUser,
         },
         {
-            id: 'projects',
-            label: 'Projects',
-            icon: faTable,
-        },
-        {
             id: 'experiences',
             label: 'Experiences',
             icon: faList,
+        },
+        {
+            id: 'projects',
+            label: 'Projects',
+            icon: faTable,
         },
         {
             id: 'contact',
