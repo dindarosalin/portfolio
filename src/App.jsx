@@ -8,6 +8,7 @@ import Projects from './pages/public/projects'
 import Experiences from './pages/public/experiences'
 import Certifications from './pages/public/certifications'
 import ConnectForm from './pages/public/connectForm'
+import Contribution from './pages/public/contribution'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Home />
       <About />
       <Experiences />
+      <Contribution />
       <Projects />
       <Certifications />
       <ConnectForm />
