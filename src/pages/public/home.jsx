@@ -9,8 +9,11 @@ import {
     getYearsExperience,
 } from '../../services/statisticServices'
 
+import { getTools } from '../../services/toolServices'
+
 import Button from '../../components/button'
 import StatCard from '../../components/statCard'
+import ToolIcon from '../../components/toolIcon'
 
 import {
     faGithub,
@@ -18,8 +21,6 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
-import 'swiper/css'
 
 const Home = () => {
     const [profile, setProfile] = useState(null)
@@ -30,6 +31,8 @@ const Home = () => {
         yearsExperience: 0,
         certifications: 0,
     })
+
+    const [tools, setTools] = useState([])
 
     const [error, setError] = useState(null)
 
@@ -49,6 +52,22 @@ const Home = () => {
         }
 
         loadProfile()
+    }, [])
+
+    useEffect(() => {
+        async function loadTools() {
+            try {
+                const data = await getTools()
+                setTools(data)
+            } catch (err) {
+                console.error(
+                    'Failed to load tools:',
+                    err
+                )
+            }
+        }
+
+        loadTools()
     }, [])
 
     useEffect(() => {
@@ -90,7 +109,7 @@ const Home = () => {
                 className="
                     mx-auto
                     flex
-                    min-h-[80vh]
+                    min-h-screen
                     max-w-content
                     items-center
                     px-6
@@ -112,7 +131,7 @@ const Home = () => {
                 className="
                     mx-auto
                     flex
-                    min-h-[80vh]
+                    min-h-screen
                     max-w-content
                     items-center
                     px-6
@@ -133,7 +152,7 @@ const Home = () => {
             className="
                 mx-auto
                 flex
-                min-h-[80vh]
+                min-h-screen
                 max-w-content
                 flex-col
                 justify-center
@@ -148,31 +167,12 @@ const Home = () => {
             {/* Introduction */}
             <div className="w-full">
 
-                <p
-                    className="
-                        font-body
-                        text-base
-                        text-muted
-                        sm:text-lg
-                    "
-                >
+                <p className=" font-body text-base text-muted sm:text-lg">
                     Hello B!
                 </p>
 
                 <h1
-                    className="
-                        mt-2
-                        max-w-4xl
-                        font-heading
-                        text-4xl
-                        font-bold
-                        leading-tight
-                        text-pink-dark
-                        sm:text-5xl
-                        md:text-6xl
-                        lg:text-h1
-                        lg:leading-h1
-                    "
+                    className=" mt-2 max-w-4xl font-heading text-4xl font-bold leading-tight text-pink-dark sm:text-5xl md:text-6xl lg:text-h1 lg:leading-h1"
                 >
                     My name is {profile.name}.
                 </h1>
@@ -229,14 +229,16 @@ const Home = () => {
                 </div>
             </div>
 
-                {/* Statistics */}
+            {/* Statistics */}
             <div
                 className="
-                    mt-12
+                    mt-10
                     grid
                     w-full
                     grid-cols-2
-                    gap-2
+                    gap-3
+                    sm:mt-12
+                    sm:gap-4
                     lg:grid-cols-4
                 "
             >
@@ -263,6 +265,47 @@ const Home = () => {
                     label="Certifications"
                     description="Certifications I've earned."
                 />
+            </div>
+
+            {/* Tools */}
+            <div
+                className="
+                    mt-8
+                    w-full
+                    sm:mt-10
+                "
+            >
+                <p
+                    className="
+                        mb-3
+                        text-center
+                        font-body
+                        text-sm
+                        font-medium
+                        text-muted
+                        sm:text-base
+                    "
+                >
+                    Tools I Use
+                </p>
+
+                <div
+                    className="
+                        flex
+                        flex-wrap
+                        justify-center
+                        gap-2
+                        sm:gap-3
+                    "
+                >
+                    {tools.map((tool) => (
+                        <ToolIcon
+                            key={tool.id}
+                            name={tool.name}
+                            iconUrl={tool.icon_url}
+                        />
+                    ))}
+                </div>
             </div>
         </section>
     )
