@@ -4,9 +4,20 @@ import { getExperiences } from '../../services/experienceServices'
 
 import ExperienceCard from '../../components/experienceCard'
 import SectionTitle from '../../components/sectionTitle'
+import Button from '../../components/button'
+
+import {
+    faChevronDown,
+} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Experiences = () => {
     const [experiences, setExperiences] = useState([])
+    const [visibleExperiences, setVisibleExperiences] =
+        useState(2)
+    const [newExperienceIds, setNewExperienceIds] =
+        useState([])
+
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
 
@@ -42,6 +53,31 @@ const Experiences = () => {
             new Date(a.start_date)
     )
 
+    const experiencesToShow =
+        experiencesDescending.slice(
+            0,
+            visibleExperiences
+        )
+
+    const handleLoadMore = () => {
+        const nextVisibleExperiences =
+            experiencesDescending.slice(
+                visibleExperiences,
+                visibleExperiences + 2
+            )
+
+        setNewExperienceIds(
+            nextVisibleExperiences.map(
+                (experience) => experience.id
+            )
+        )
+
+        setVisibleExperiences(
+            visibleExperiences +
+                nextVisibleExperiences.length
+        )
+    }
+
     return (
         <section
             id="experiences"
@@ -57,7 +93,7 @@ const Experiences = () => {
         >
             <SectionTitle
                 title="Experiences"
-                subtitle="My professional and learning experiences"
+                subtitle="My Lastest Professional Experiences"
             />
 
             {/* Loading */}
@@ -80,18 +116,65 @@ const Experiences = () => {
 
             {/* Experiences */}
             {!loading && !error && (
-                <div className="mt-10">
-                    {experiencesDescending.map(
-                        (experience, index) => (
-                            <ExperienceCard
-                                key={experience.id}
-                                experience={experience}
-                                reverse={index % 2 !== 0}
-                                isLast={index === experiencesDescending.length - 1}
-                            />
-                        )
+                <>
+                    <div className="mt-10">
+                        {experiencesToShow.map(
+                            (experience, index) => {
+                                const isNewExperience =
+                                    newExperienceIds.includes(
+                                        experience.id
+                                    )
+
+                                return (
+                                    <div
+                                        key={experience.id}
+                                        className={
+                                            isNewExperience
+                                                ? 'animate-fade-in'
+                                                : ''
+                                        }
+                                    >
+                                        <ExperienceCard
+                                            experience={
+                                                experience
+                                            }
+                                            reverse={
+                                                index % 2 !== 0
+                                            }
+                                            isLast={
+                                                index ===
+                                                experiencesToShow.length -
+                                                    1
+                                            }
+                                        />
+                                    </div>
+                                )
+                            }
+                        )}
+                    </div>
+
+                    {/* Load More */}
+                    {visibleExperiences <
+                        experiencesDescending.length && (
+                        <div className="mt-8 flex justify-center">
+                            <Button
+                                onClick={
+                                    handleLoadMore
+                                }
+                            >
+                                <span>
+                                    Load More
+                                </span>
+
+                                <FontAwesomeIcon
+                                    icon={
+                                        faChevronDown
+                                    }
+                                />
+                            </Button>
+                        </div>
                     )}
-                </div>
+                </>
             )}
         </section>
     )

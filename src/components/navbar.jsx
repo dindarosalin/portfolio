@@ -83,7 +83,7 @@ const Navbar = () => {
                     gap-5
                     text-sm
                     font-normal
-                    text-pink-primary
+                    text-pink-dark
                 "
             >
                 {navItems.map((item) => (
@@ -92,11 +92,10 @@ const Navbar = () => {
                         className={`
                             duration-300
                             ease-in-out
-                            hover:font-medium
-                            hover:text-pink-dark
+                            hover:font-bold
                             ${
                                 activeSection === item.id
-                                    ? 'font-medium text-pink-dark'
+                                    ? 'font-bold'
                                     : ''
                             }
                         `}
