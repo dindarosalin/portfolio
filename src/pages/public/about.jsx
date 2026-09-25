@@ -8,6 +8,7 @@ import Button from '../../components/button'
 
 import {
     faDownload,
+    faEye,
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
@@ -16,6 +17,7 @@ const About = () => {
     const [education, setEducation] = useState([])
     const [error, setError] = useState(null)
     const [educationError, setEducationError] = useState(null)
+    const [isCvOpen, setIsCvOpen] = useState(false)
 
     useEffect(() => {
         async function loadProfile() {
@@ -188,14 +190,62 @@ const About = () => {
                             )}
                         </div>
                     </div>
-                    <div className="mt-5">
-                        <Button href="/Dinda-Rosalin-CV.pdf">
+                    <div className="mt-5 flex gap-2">
+                        <Button
+                            href={profile.cv_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             <FontAwesomeIcon icon={faDownload} />
-                            <span>Download CV</span>
+                            <span>Download My CV</span>
+                        </Button>
+                        <Button
+                            onClick={() => setIsCvOpen(true)}
+                        >
+                            <FontAwesomeIcon icon={faEye} />
+                            <span>View My CV</span>
                         </Button>
                     </div>
                 </div>
             </div>
+
+            {/* CV Modal */}
+            {isCvOpen && (
+                <div
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4 py-6"
+                    onClick={() => setIsCvOpen(false)}
+                >
+                    <div
+                        className="relative flex h-[90vh] w-full max-w-5xl flex-col overflow-hidden rounded-lg bg-surface shadow-soft"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        {/* Modal Header */}
+                        <div className="flex items-center justify-between border-b border-border px-5 py-4">
+                            <h3 className="font-heading text-lg font-bold text-pink-dark">
+                                Dinda Rosalin Curiculum Vitae
+                            </h3>
+
+                            <button
+                                type="button"
+                                onClick={() => setIsCvOpen(false)}
+                                className="text-2xl text-muted transition hover:text-pink-dark"
+                                aria-label="Close CV"
+                            >
+                                &times;
+                            </button>
+                        </div>
+
+                        {/* PDF */}
+                        <div className="min-h-0 flex-1">
+                            <iframe
+                                src={profile.cv_url}
+                                title="Dinda Rosalin CV"
+                                className="h-full w-full border-0"
+                            />
+                        </div>
+                    </div>
+                </div>
+            )}
         </section>
     )
 }
