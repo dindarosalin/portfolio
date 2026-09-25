@@ -1,5 +1,6 @@
 import Navbar from '../components/navbar'
 import Footer from '../components/footer'
+import BackToTop from '../components/backToTop'
 
 const PublicLayout = ({ children }) => {
     return (
@@ -9,7 +10,7 @@ const PublicLayout = ({ children }) => {
             <main className="flex-1">
                 {children}
             </main>
-
+            <BackToTop />
             <Footer />
         </div>
     )

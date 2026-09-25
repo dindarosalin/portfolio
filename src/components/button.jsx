@@ -12,7 +12,6 @@ const Button = ({
         gap-2
         rounded-full
         border
-        border-border
         bg-surface/80
         px-3
         py-1
