@@ -192,7 +192,7 @@ const About = () => {
                     </div>
                     <div className="mt-5 flex gap-2">
                         <Button
-                            href={profile.cv_url}
+                            href={`${profile.cv_url}?download=Dinda_Rosalin_CV.pdf`}
                             target="_blank"
                             rel="noopener noreferrer"
                         >
