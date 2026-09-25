@@ -116,7 +116,7 @@ const About = () => {
                     <h2
                         className=" font-heading text-h3 font-bold leading-h3 text-pink-dark"
                     >
-                        Hi, I am {profile.name},
+                        Hi B!, Quick introduction about me
                     </h2>
 
                     <p
@@ -129,23 +129,6 @@ const About = () => {
                     <div
                         className=" mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3"
                     >
-                        {/* Headline */}
-                        <div
-                            className=" rounded-md border border-border bg-surface p-4 shadow-soft"
-                        >
-                            <p
-                                className=" text-xs font-medium text-muted"
-                            >
-                                Headline
-                            </p>
-
-                            <p
-                                className=" mt-1 text-sm font-medium text-text"
-                            >
-                                {profile.headline}
-                            </p>
-                        </div>
-
                         {/* Location */}
                         <div
                             className=" rounded-md border border-border bg-surface p-4 shadow-soft"

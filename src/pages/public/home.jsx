@@ -1,56 +1,114 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faInstagram } from '@fortawesome/free-brands-svg-icons'
+import { useEffect, useState } from 'react'
 
-// import SocialButton from '../../components/socialButton'
+import { getProfile } from '../../services/profileServices'
+
 import Button from '../../components/button'
 
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 const Home = () => {
+    const [profile, setProfile] = useState(null)
+    const [error, setError] = useState(null)
+
+    useEffect(() => {
+        async function loadProfile() {
+            try {
+                const data = await getProfile()
+                setProfile(data)
+            } catch (err) {
+                console.error(
+                    'Failed to load profile:',
+                    err
+                )
+
+                setError(err.message)
+            }
+        }
+
+        loadProfile()
+    }, [])
+
+    if (error) {
+        return (
+            <section
+                id="home"
+                className="mx-auto flex min-h-[80vh] max-w-content items-center px-6 sm:px-8 lg:px-10"
+            >
+                <p className="text-muted">
+                    Failed to load profile.
+                </p>
+            </section>
+        )
+    }
+
+    if (!profile) {
+        return (
+            <section
+                id="home"
+                className="mx-auto flex min-h-[80vh] max-w-content items-center px-6 sm:px-8 lg:px-10"
+            >
+                <p className="text-muted">
+                    Loading...
+                </p>
+            </section>
+        )
+    }
+
     return (
         <section
             id="home"
-            className="mx-auto min-h-[80vh] max-w-content px-6 sm:px-8 lg:px-10"
+            className=" mx-auto flex min-h-[80vh] max-w-content items-center px-6 py-16 sm:px-8 lg:px-10"
         >
-             <div className="grid min-h-[80vh] items-center gap-10 md:grid-cols-2">
+            <div className="w-full">
 
                 {/* Introduction */}
-                <div className="text-center md:text-left">
-                    <h1
-                        className="
-                            font-heading
-                            text-h2
-                            font-bold
-                            leading-h2
-                            text-pink-dark
-                            md:text-h1
-                            md:leading-h1
-                        "
+                <div className="max-w-3xl">
+
+                    <p
+                        className=" font-body text-lg text-muted sm:text-xl"
                     >
-                        Hello There! My <br />
-                        name is Dinda Rosalin. <br />
-                        I’m a Student
+                        Hello B!
+                    </p>
+
+                    <h1
+                        className=" mt-2 font-heading text-4xl font-bold leading-tight text-pink-dark sm:text-5xl md:text-h1 md:leading-h1"
+                    >
+                        My name is {profile.name}.
                     </h1>
 
-                    {/* <div className="mt-6">
-                        <SocialButton
-                            icon={faInstagram}
-                            label="Lets be moots"
-                            href="https://www.instagram.com/dindarosalin"
-                        />
-                    </div> */}
-                <div className="mt-6">
-                    <Button href="https://www.instagram.com/dindarosalin">
-                        <FontAwesomeIcon
-                            icon={faInstagram}
-                        />
-                        Lets be moots
-                    </Button>
-                </div>
+                    <p
+                        className="
+                            mt-5
+                            font-body
+                            text-xl
+                            leading-relaxed
+                            text-text
+                            sm:text-2xl
+                        "
+                    >
+                            {profile.headline}
+                    </p>
 
-                </div>
+                    {/* Social Media */}
+                    <div
+                        className="
+                            mt-4
+                            flex
+                            justify-start
+                            gap-2
+                        "
+                    >
+                        <Button href={profile.github_url} target="_blank" rel="noopener noreferrer">
+                            <FontAwesomeIcon icon={faGithub} />
+                            <span>View My GitHub</span>
+                        </Button>
+                        <Button href={profile.linkedin_url} target="_blank" rel="noopener noreferrer" className="ml-4">
+                            <FontAwesomeIcon icon={faLinkedin} />
+                            <span>View My LinkedIn</span>
+                        </Button>
+                    </div>
 
-                {/* Visual Area */}
-                <div className="flex min-h-[280px] items-center justify-center">
-                    {/* Profile photo / illustration can be added here */}
                 </div>
 
             </div>
