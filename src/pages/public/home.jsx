@@ -273,28 +273,21 @@ const Home = () => {
                     mt-8
                     w-full
                     sm:mt-10
+                    flex
+                    justify-center
                 "
             >
-                <p
-                    className="
-                        mb-3
-                        text-center
-                        font-body
-                        text-sm
-                        font-medium
-                        text-muted
-                        sm:text-base
-                    "
-                >
-                    Tools I Use
-                </p>
-
                 <div
                     className="
                         flex
+                        w-fit
                         flex-wrap
                         justify-center
                         gap-2
+                        rounded-full
+                        bg-pink-light
+                        p-2
+                        px-6
                         sm:gap-3
                     "
                 >

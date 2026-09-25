@@ -8,7 +8,7 @@ const StatCard = ({
             className="
                 flex
                 min-w-0
-                min-h-[140px]
+                min-h-[130px]
                 w-full
                 flex-col
                 justify-center
@@ -19,25 +19,19 @@ const StatCard = ({
                 p-3
                 text-center
                 shadow-soft
-                transition-all
-                duration-300
-                sm:min-h-[160px]
+                sm:min-h-[145px]
                 sm:p-4
-                lg:min-h-[180px]
-                lg:p-6
+                lg:min-h-[155px]
             "
         >
             <p
                 className="
-                    min-w-0
-                    break-words
                     font-heading
-                    text-2xl
+                    text-3xl
                     font-bold
                     leading-none
                     text-pink-dark
-                    sm:text-3xl
-                    lg:text-4xl
+                    sm:text-4xl
                 "
             >
                 {number}
@@ -46,17 +40,13 @@ const StatCard = ({
             <h3
                 className="
                     mt-2
-                    min-w-0
                     break-words
-                    whitespace-normal
                     font-heading
                     text-sm
                     font-bold
                     leading-tight
                     text-text
                     sm:text-base
-                    lg:mt-3
-                    lg:text-lg
                 "
             >
                 {label}
@@ -65,16 +55,12 @@ const StatCard = ({
             {description && (
                 <p
                     className="
-                        mt-1
-                        min-w-0
+                        mt-1.5
                         break-words
-                        whitespace-normal
+                        text-[10px]
                         leading-tight
                         text-muted
-                        sm:mt-2
                         sm:text-xs
-                        lg:text-sm
-                        lg:leading-relaxed
                     "
                 >
                     {description}
