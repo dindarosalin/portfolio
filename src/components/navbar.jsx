@@ -4,6 +4,7 @@ import {
     faTable,
     faList,
     faAddressBook,
+    faHome,
 } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from 'react'
 
@@ -34,6 +35,11 @@ const Navbar = () => {
     }, [])
 
     const navItems = [
+        {
+            id: 'home',
+            label: 'Home',
+            icon: faHome,
+        },
         {
             id: 'about',
             label: 'About',
