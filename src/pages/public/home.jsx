@@ -174,7 +174,7 @@ const Home = () => {
                 <h1
                     className=" mt-2 max-w-4xl font-heading text-4xl font-bold leading-tight text-pink-dark sm:text-5xl md:text-6xl lg:text-h1 lg:leading-h1"
                 >
-                    My name is {profile.name}.
+                    I am {profile.name}
                 </h1>
 
                 <p
