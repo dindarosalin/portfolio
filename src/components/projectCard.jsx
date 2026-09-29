@@ -1,6 +1,10 @@
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
-import { faArrowUpRightFromSquare } from '@fortawesome/free-solid-svg-icons'
+import {
+    faArrowUpRightFromSquare,
+    faEye,
+} from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Link } from 'react-router-dom'
 
 import Button from './button'
 
@@ -19,17 +23,32 @@ const ProjectCard = ({ project }) => {
                 p-2.5
                 font-body
                 shadow-soft
-                duration-300
-                ease-in-out
-                hover:-translate-y-1
-                hover:shadow-md
             "
         >
             {/* Image */}
-            <div className="h-40 w-full shrink-0">
+            <div
+                className="
+                    h-40
+                    w-full
+                    shrink-0
+                    overflow-hidden
+                    rounded-sm
+                "
+            >
                 {project.image_url ? (
                     <img
-                        className="h-full w-full rounded-sm object-cover"
+                        className="
+                            block
+                            h-full
+                            w-full
+                            rounded-sm
+                            object-cover
+                            transition-all
+                            duration-300
+                            ease-in-out
+                            hover:scale-[1.02]
+                            hover:shadow-md
+                        "
                         src={project.image_url}
                         alt={project.title}
                     />
@@ -48,6 +67,10 @@ const ProjectCard = ({ project }) => {
                             bg-pink-light/40
                             px-4
                             text-center
+                            transition-all
+                            duration-300
+                            ease-in-out
+                            hover:shadow-md
                         "
                     >
                         <p className="text-sm font-medium text-pink-dark">
@@ -88,12 +111,29 @@ const ProjectCard = ({ project }) => {
                 </div>
 
                 {/* Description */}
-                <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-text">
+                <p
+                    className="
+                        mt-2
+                        line-clamp-3
+                        text-sm
+                        leading-relaxed
+                        text-text
+                    "
+                >
                     {project.description}
                 </p>
 
                 {/* Skills */}
-                <div className="mt-3 flex min-h-[2rem] flex-wrap items-start gap-1.5">
+                <div
+                    className="
+                        mt-3
+                        flex
+                        min-h-[2rem]
+                        flex-wrap
+                        items-start
+                        gap-1.5
+                    "
+                >
                     {project.project_skills?.map((projectSkill) => {
                         const skillName = projectSkill.skills?.name
 
@@ -125,12 +165,25 @@ const ProjectCard = ({ project }) => {
             {/* Buttons */}
             <div
                 className="
-                    my-1.5
+                    mt-4
                     flex
+                    flex-wrap
                     justify-center
-                    gap-3
+                    gap-2
                 "
             >
+                {project.slug && (
+                    <Link
+                        to={`/projects/${project.slug}`}
+                        className="shrink-0"
+                    >
+                        <Button>
+                            <FontAwesomeIcon icon={faEye} />
+                            Detail
+                        </Button>
+                    </Link>
+                )}
+
                 {project.project_url && (
                     <Button href={project.project_url}>
                         <FontAwesomeIcon

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getProjects } from '../../services/projectServices'
+import { getProjects } from '../../../services/projectServices'
 
 import {
     faChevronDown,
@@ -7,10 +7,10 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import SectionTitle from '../../components/sectionTitle'
-import ProjectCard from '../../components/projectCard'
-import Button from '../../components/button'
-import FormInput from '../../components/formInput'
+import SectionTitle from '../../../components/sectionTitle'
+import ProjectCard from '../../../components/projectCard'
+import Button from '../../../components/button'
+import FormInput from '../../../components/formInput'
 
 const Projects = () => {
     const [projects, setProjects] = useState([])
