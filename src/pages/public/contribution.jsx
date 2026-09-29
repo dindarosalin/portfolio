@@ -46,8 +46,6 @@ const Contribution = () => {
                 className="
                     mx-auto
                     max-w-content
-                    px-6
-                    py-16
                     sm:px-8
                     lg:px-10
                 "
@@ -58,7 +56,7 @@ const Contribution = () => {
             {/* Full Width Background */}
             <div className="w-full bg-pink-primary">
                 <div
-                    className="container mx-auto px-6 py-16 font-body sm:px-8 lg:px-10"
+                    className="container mx-auto py-8 font-body sm:px-8 lg:px-10"
                 >
                     {/* GitHub Contributions */}
                     <div>

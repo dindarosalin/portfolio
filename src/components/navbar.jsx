@@ -5,6 +5,7 @@ import {
     faList,
     faAddressBook,
     faHome,
+    faBook,
 } from '@fortawesome/free-solid-svg-icons'
 import { useEffect, useState } from 'react'
 
@@ -54,6 +55,11 @@ const Navbar = () => {
             id: 'projects',
             label: 'Projects',
             icon: faTable,
+        },
+        {
+            id: 'certification',
+            label: 'Certification',
+            icon: faBook,
         },
         {
             id: 'contact',
