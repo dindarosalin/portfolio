@@ -149,20 +149,7 @@ const Home = () => {
     return (
         <section
             id="home"
-            className="
-                mx-auto
-                flex
-                min-h-screen
-                max-w-content
-                flex-col
-                justify-center
-                px-6
-                py-16
-                sm:px-8
-                sm:py-20
-                lg:px-10
-                lg:py-24
-            "
+            className="container mx-auto px-6 py-16 font-body sm:px-8 lg:px-10"
         >
             {/* Introduction */}
             <div className="w-full">

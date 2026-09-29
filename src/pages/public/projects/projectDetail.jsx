@@ -39,15 +39,7 @@ const ProjectDetail = () => {
     if (loading) {
         return (
             <section
-                className="
-                    mx-auto
-                    max-w-content
-                    px-6
-                    py-16
-                    font-body
-                    sm:px-8
-                    lg:px-10
-                "
+                className="container mx-auto px-6 py-16 font-body sm:px-8 lg:px-10"
             >
                 <p className="text-center text-sm text-muted">
                     Loading project...
@@ -59,15 +51,7 @@ const ProjectDetail = () => {
     if (error || !project) {
         return (
             <section
-                className="
-                    mx-auto
-                    max-w-content
-                    px-6
-                    py-16
-                    font-body
-                    sm:px-8
-                    lg:px-10
-                "
+                className="container mx-auto px-6 py-16 font-body sm:px-8 lg:px-10"
             >
                 <p className="text-center text-sm text-muted">
                     Project not found.
@@ -94,16 +78,9 @@ const ProjectDetail = () => {
     }
 
     return (
-        <main
-            className="
-                mx-auto
-                max-w-content
-                px-6
-                py-16
-                font-body
-                sm:px-8
-                lg:px-10
-            "
+        <section
+            id="project-detail"
+            className="container mx-auto px-6 py-16 font-body sm:px-8 lg:px-10"
         >
             {/* Back */}
             <Link
@@ -296,7 +273,7 @@ const ProjectDetail = () => {
                     </Button>
                 )}
             </div>
-        </main>
+        </section>
     )
 }
 

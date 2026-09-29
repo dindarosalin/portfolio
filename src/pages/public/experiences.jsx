@@ -81,15 +81,7 @@ const Experiences = () => {
     return (
         <section
             id="experiences"
-            className="
-                mx-auto
-                max-w-content
-                px-6
-                py-16
-                font-body
-                sm:px-8
-                lg:px-10
-            "
+            className="container mx-auto px-6 py-16 font-body sm:px-8 lg:px-10"
         >
             <SectionTitle
                 title="Experiences"

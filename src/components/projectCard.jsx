@@ -11,29 +11,11 @@ import Button from './button'
 const ProjectCard = ({ project }) => {
     return (
         <div
-            className="
-                flex
-                h-full
-                flex-col
-                overflow-hidden
-                rounded-md
-                border
-                border-border
-                bg-surface
-                p-2.5
-                font-body
-                shadow-soft
-            "
+            className=" flex h-full flex-col overflow-hidden rounded-md border border-border bg-surface p-2.5 font-body shadow-soft"
         >
             {/* Image */}
             <div
-                className="
-                    h-40
-                    w-full
-                    shrink-0
-                    overflow-hidden
-                    rounded-sm
-                "
+                className=" w-full shrink-0 overflow-hidden rounded-sm"
             >
                 {project.image_url ? (
                     <img
@@ -85,7 +67,7 @@ const ProjectCard = ({ project }) => {
             </div>
 
             {/* Content */}
-            <div className="mt-3 flex flex-1 flex-col">
+            <div className="mt-2 flex flex-1 flex-col">
 
                 {/* Title */}
                 <h3
@@ -126,7 +108,7 @@ const ProjectCard = ({ project }) => {
                 {/* Skills */}
                 <div
                     className="
-                        mt-3
+                        mt-2
                         flex
                         min-h-[2rem]
                         flex-wrap
@@ -149,7 +131,6 @@ const ProjectCard = ({ project }) => {
                                     bg-pink-light
                                     px-2.5
                                     py-1
-                                    text-[11px]
                                     font-normal
                                     leading-none
                                     text-text
@@ -165,7 +146,6 @@ const ProjectCard = ({ project }) => {
             {/* Buttons */}
             <div
                 className="
-                    mt-4
                     flex
                     flex-wrap
                     justify-center
@@ -179,7 +159,7 @@ const ProjectCard = ({ project }) => {
                     >
                         <Button>
                             <FontAwesomeIcon icon={faEye} />
-                            Detail
+                            View
                         </Button>
                     </Link>
                 )}
@@ -189,14 +169,14 @@ const ProjectCard = ({ project }) => {
                         <FontAwesomeIcon
                             icon={faArrowUpRightFromSquare}
                         />
-                        Live Preview
+                        Visit
                     </Button>
                 )}
 
                 {project.github_url && (
                     <Button href={project.github_url}>
                         <FontAwesomeIcon icon={faGithub} />
-                        Repository
+                        GitHub
                     </Button>
                 )}
             </div>

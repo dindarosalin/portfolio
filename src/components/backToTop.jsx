@@ -36,7 +36,7 @@ const BackToTop = () => {
                     onClick={handleBackToTop}
                     aria-label="Back to top"
                 >
-                    <FontAwesomeIcon icon={faArrowUp} />
+                    <FontAwesomeIcon icon={faArrowUp} className="text-xl" />
                 </Button>
             </div>
         </div>

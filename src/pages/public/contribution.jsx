@@ -4,7 +4,6 @@ import { getSkills } from '../../services/skillServices'
 
 import GithubContribution from '../../components/githubContribution'
 import SkillTag from '../../components/skillTag'
-import SectionTitle from '../../components/sectionTitle'
 
 const Contribution = () => {
     const [skills, setSkills] = useState([])
@@ -59,16 +58,7 @@ const Contribution = () => {
             {/* Full Width Background */}
             <div className="w-full bg-pink-primary">
                 <div
-                    className="
-                        mx-auto
-                        max-w-content
-                        px-6
-                        py-12
-                        sm:px-8
-                        sm:py-14
-                        lg:px-10
-                        lg:py-16
-                    "
+                    className="container mx-auto px-6 py-16 font-body sm:px-8 lg:px-10"
                 >
                     {/* GitHub Contributions */}
                     <div>
