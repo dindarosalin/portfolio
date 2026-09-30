@@ -57,8 +57,8 @@ const Navbar = () => {
             icon: faTable,
         },
         {
-            id: 'certification',
-            label: 'Certification',
+            id: 'certifications',
+            label: 'Certifications',
             icon: faBook,
         },
         {
